@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<meta doctype=utf-8>
+<title>Multiple Images (1)</title>
+<div id="images">
+	<img src="button1.png">
+	<img src="button1.png">
+	<img src="button1.png">
+	<img src="button1.png">
+</div>
+<script>
+window.onload = function() {
+  var images = document.querySelector('#images');
+  images.onclick = function() { alert('Hello!') };
+}
+</script>

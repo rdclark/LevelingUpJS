@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<meta doctype=utf-8>
+<title>Clicky!</title>
+  <div id="buttons">
+	<button id="a">a</button>
+	<button id="b">b</button>
+	<button id="c">c</button>
+	<button id="d">d</button>
+  </div>
+<script>
+  function attachClickHandler(button) {
+    var count = 0;
+    button.onclick = function(event) { 
+        count++; 
+        this.innerHTML = this.id + " (" + count + ")";
+    };
+  }
+
+  var buttons = document.querySelectorAll('button');
+  for (var i=0; i < buttons.length; i++) attachClickHandler(buttons[i]);
+</script>

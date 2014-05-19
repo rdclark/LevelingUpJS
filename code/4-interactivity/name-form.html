@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<meta doctype=utf-8>
+<title>Greetings</title>
+<form>
+	<label for="name">What is your name?</label>
+	<input type="text" id="name">
+</form>
+<script>
+window.onload = function() {
+  var form = document.forms[0];
+  form.onsubmit = function() { 
+  	var input = form.elements[0];
+  	alert('Hello, ' + input.value);
+  }
+}
+</script>

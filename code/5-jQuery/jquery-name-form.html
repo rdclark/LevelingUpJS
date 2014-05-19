@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<meta doctype=utf-8>
+<title>jQuery Form</title>
+<script src="lib/jquery-2.1.1.js"></script>
+<form>
+	<input type="text" placeholder="What is your name?">
+</form>
+<p>Welcome, <span id="name">stranger</span>
+<script>
+$(document).ready(function() {
+  var form = $(document.forms[0]); // or $('form')
+  var input = $('input');
+  form.submit(function(event) { 
+  	$('#name').html(input.val());
+  	input.val('');
+  	event.preventDefault();
+  })
+});
+</script>

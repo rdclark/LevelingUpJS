@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<meta doctype=utf-8>
+<title>Which button?</title>
+<div id="buttons">
+	<button id="a">A</button>
+	<button id="b">B</button>
+	<button id="c">C</button>
+	<button id="d">D</button>
+</div>
+<script>
+  var buttons = document.querySelector('#buttons');
+  buttons.onclick = function(event) { 
+  	alert("Clicked " + event.target.id) 
+  }
+</script>

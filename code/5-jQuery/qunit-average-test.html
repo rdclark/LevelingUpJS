@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<title>Unit testing</title>
+<link rel="stylesheet" href="http://code.jquery.com/qunit/qunit-1.14.0.css">
+<div id="qunit"></div>
+<script src="http://code.jquery.com/qunit/qunit-1.14.0.js"></script>
+<script>
+  function average(x, y) {
+    return (x + y) / 2;
+  }
+</script>
+<script>
+  // ===== Tests =====
+  module("Averages");
+  
+  test("Two values", function() {
+    equal(average(2, 4), 3, "Even numbers");
+    equal(average(1, 2), 1.5, "Adjacent numbers");
+  });
+</script>

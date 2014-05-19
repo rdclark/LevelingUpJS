@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Table Example</title>
+  <link rel="stylesheet" href="http://code.jquery.com/qunit/qunit-1.14.0.css">
+</head>
+<body>
+  <div id="qunit"></div>
+  <div id="qunit-fixture">
+  	<table id=testTable />
+  </div>
+  <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="http://code.jquery.com/qunit/qunit-1.14.0.js"></script>
+  <script>
+
+  function addRow(numRows) {
+	  numRows = numRows || 1;
+	  var table = $('#testTable');
+	  for (var i=0; i < numRows; i++) {
+		  table.append("<tr><td>Data!</td></tr>");
+	  }
+  }
+  
+  module("Table modification");
+  
+  test("Initial conditions", function() {
+	  ok($('#testTable'), "We have the table");
+	  equal($('#testTable tr').length, 0, "No rows");
+  });
+  
+  test("Add one row", function() {
+	  addRow();
+	  equal($('#testTable tr').length, 1, "One row");
+  });
+  
+  test("Add two rows", function() {
+	  addRow(2);
+	  equal($('#testTable tr').length, 2, "Two rows");
+  });
+  
+  </script>
+</body>
+</html>

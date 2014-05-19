@@ -1,0 +1,50 @@
+<!doctype html>
+<meta charset=utf-8>
+<title>Geoquery</title>
+<style>#result { visibility: hidden }</style>
+<form>
+  <input type=search placeholder="Type a place name" size=40 id=query autofocus required>
+</form>
+<table id="result">
+  <tr><td>Query</td><td class=query></td></tr>
+  <tr><td>Latitude</td><td class=latitude></td></tr>
+  <tr><td>Longitude</td><td class=longitude></td></tr>
+</table>
+<script src="lib/jquery-2.1.1.js"></script>
+<script>
+  $(document).ready(function() {
+    $('form').submit(function() {
+      var search = $('query').val();
+      if (!search.trim()) return;
+      findLocation(search);
+    })
+  });
+
+  function showResult(latitude, longitude, query) {
+    $('result').fadeIn();
+    $('td.query').text(query);
+    $('td.latitude').text(latitude);
+    $('td.longitude').text(longitude);
+  }
+
+  function hideResult() {
+    $('result').hide();
+  }
+
+  function findLocation(query) {
+    $.ajax({
+      url: "http://www.geonames.org/search.html",
+      data: {q: (query)},
+      success: function(data, status, req) {
+        var firstHit = $(data).find('span.geo').first()
+        var latitude = firstHit.find('span.latitude').text()
+        var longitude = firstHit.find('span.longitude').text()
+        showResult(latitude, longitude, query)
+      },
+      error: function(req, status) {
+        hideResult();
+        window.alert("Error: " + req.statusText)
+      }
+    })
+  }   
+</script>

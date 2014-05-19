@@ -1,0 +1,1543 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Richard Clark" />
+  <meta name="dcterms.date" content="2014-05-19" />
+  <title>Leveling up in Javascript</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="reveal.js/css/reveal.min.css"/>
+    <style type="text/css">code{white-space: pre;}</style>
+    <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+    </style>
+    <link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+      if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+      }
+    </script>
+    <!--[if lt IE 9]>
+    <script src="reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+    <h1 class="title">Leveling up in Javascript</h1>
+    <h2 class="author">Richard Clark</h2>
+    <h3 class="date">May 19, 2014</h3>
+</section>
+
+<section><section id="introductions" class="titleslide slide level1"><h1>Introductions</h1></section><section id="who-am-i" class="slide level2">
+<h1>Who am I?</h1>
+<ul>
+<li>Richard Clark</li>
+<li>Head of Global Training, <a href="http://www.kaazing.com">Kaazing</a></li>
+<li>Formerly: Apple, General Magic, HP, Verifone, etc.</li>
+</ul>
+</section><section id="say-a-little-about-yourself" class="slide level2">
+<h1>Say a little about yourself</h1>
+<ul>
+<li>Who you are</li>
+<li>What's your background</li>
+<li>Any other programming experience?</li>
+<li>What's one thing you'd like from today?</li>
+</ul>
+</section></section>
+<section><section id="getting-started" class="titleslide slide level1"><h1>Getting started</h1></section><section id="first-a-little-html5" class="slide level2">
+<h1>First, a little HTML5</h1>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="dt">&lt;!DOCTYPE </span>html<span class="dt">&gt;</span>
+<span class="kw">&lt;meta</span><span class="ot"> doctype=</span><span class="st">utf-8</span><span class="kw">&gt;</span>
+<span class="kw">&lt;title&gt;</span>Javascript practice<span class="kw">&lt;/title&gt;</span>
+<span class="kw">&lt;h1&gt;</span>Just a practice page<span class="kw">&lt;/h1&gt;</span>
+<span class="kw">&lt;script&gt;</span>
+
+<span class="kw">&lt;/script&gt;</span></code></pre>
+</section></section>
+<section><section id="meet-javascript" class="titleslide slide level1"><h1>Meet Javascript</h1></section><section id="your-first-javascript-program" class="slide level2">
+<h1>Your first Javascript program</h1>
+<pre><code>&lt;script&gt;
+    alert(&quot;Hello, World!&quot;);
+&lt;/script&gt;</code></pre>
+<aside class="notes">
+    
+Include the script on a page, run it, see how this works in the browser.
+</aside>
+
+
+</section><section id="what-did-we-just-do" class="slide level2">
+<h1>What did we just do?</h1>
+<pre><code>&lt;script&gt;
+    alert(&quot;Hello, World!&quot;);
+&lt;/script&gt;</code></pre>
+<ul>
+<li class="fragment"><code class="code">&lt;script&gt;</code> and <code class="code">&lt;/script&gt;</code> tell the browser this is Javascript.</li>
+<li class="fragment"><code class="code">alert( )</code> asks the browser to pop up a message.</li>
+<li class="fragment"><code class="code">&quot;Hello, World&quot;</code> is the message.</li>
+<li class="fragment"><code class="code">;</code> ends the statement.</li>
+</ul>
+</section><section id="practice" class="slide level2">
+<h1>Practice</h1>
+<pre><code>alert(&quot;Hello, World!&quot;);</code></pre>
+<ol type="1">
+<li class="fragment">Try changing the message.
+</li></li>
+<li class="fragment">Try changing <code class="code">alert</code> to <code class="code">confirm</code>.
+</li>
+</li>
+</ol>
+</section><section id="some-terminology" class="slide level2">
+<h1>Some terminology</h1>
+<pre><code>alert(&quot;Hello, World!&quot;);</code></pre>
+<ul>
+<li class="fragment"><code class="code">alert</code> is a <em>function</em></li>
+<li class="fragment"><code class="code">(&quot;Hello, World!&quot;)</code>is the <em>argument list</em> (or <em>parameter list</em>)</li>
+<li class="fragment"><code class="code">&quot;Hello, World!&quot;</code>is a <em>String</em></li>
+</ul>
+</section><section id="another-way-to-display-information" class="slide level2">
+<h1>Another way to display information</h1>
+<pre><code>console.log(&quot;Hello, World!&quot;);</code></pre>
+<aside class="notes">
+    
+Open up the console and show basic Javascript programming there. Caution: This will fail in FF &lt; 3.6 (unless Firebug is installed) and older IE.
+</aside>
+
+
+</section><section id="explaining-yourself" class="slide level2">
+<h1>Explaining yourself</h1>
+<pre><code>/* Choose the most appropriate option */
+alert(&quot;Danger! Danger!&quot;); // &quot;OK&quot; button only
+confirm(&quot;Do you really mean to do this?&quot;); // Displays &quot;OK&quot; or &quot;Cancel&quot;</code></pre>
+<ul>
+<li class="fragment"><code class="code">//</code> comment to end of line</li>
+<li class="fragment"><code class="code">/*</code> encloses a comment<br>(possibly multi-line)<code class="code">*/</code></li>
+</ul>
+</section></section>
+<section><section id="variables-and-expressions" class="titleslide slide level1"><h1>Variables and expressions</h1></section><section id="remember-algebra" class="slide level2">
+<h1>Remember Algebra?</h1>
+<pre><code>y = x + 5</code></pre>
+</section><section id="same-idea-in-javascript" class="slide level2">
+<h1>Same idea in Javascript</h1>
+<pre><code>var x = 3;
+var y = x + 5;</code></pre>
+</section><section id="javascript-does-math" class="slide level2">
+<h1>Javascript does math</h1>
+<pre><code>// area = &amp;pi;&amp;middot;r&amp;sup2;
+var r = 3;
+var area = Math.PI * (r * r);</code></pre>
+<ul>
+<li class="fragment">Common operators: <code class="code">+ - * /</code></li>
+</ul>
+</section><section id="i-came-here-for-an-argument" class="slide level2">
+<h1>I came here for an argument!</h1>
+<pre><code>var argument = &quot;No you didn&#39;t!&quot;;
+alert(argument);</code></pre>
+<ul>
+<li class="fragment">(<em>argument</em> and <em>parameter</em> mean basically the same.)</li>
+</ul>
+</section><section id="stupid-tricks" class="slide level2">
+<h1>Stupid + tricks</h1>
+<pre><code>var argument = &quot;No you didn&#39;t!\n&quot; + &quot;Yes I did!&quot;
+alert(argument);</code></pre>
+<ul>
+<li class="fragment"><em>+</em> also combines strings.</li>
+<li class="fragment"><em>\n</em> means &quot;start a new line&quot;.</li>
+</ul>
+</section></section>
+<section><section id="writing-functions" class="titleslide slide level1"><h1>Writing functions</h1></section><section id="find-the-area-of-a-circle" class="slide level2">
+<h1>Find the area of a circle</h1>
+<pre><code>function area(r) {
+  var result = Math.PI * (r * r);
+  return result;
+}</code></pre>
+<p>or</p>
+<pre><code>function area(r) {
+  return Math.PI * (r * r);
+}</code></pre>
+</section><section id="use-your-new-function" class="slide level2">
+<h1>Use your new function</h1>
+<pre><code>var areaOfCircle = area(5);
+console.log(areaOfCircle);</code></pre>
+</section><section id="multiple-arguments" class="slide level2">
+<h1>Multiple arguments</h1>
+<pre><code>function add(a, b) {
+  return a+b;
+}
+
+add(2, 2);
+add(&quot;Hello, &quot;, &quot;World&quot;);</code></pre>
+</section><section id="practice-1" class="slide level2">
+<h1>Practice</h1>
+<p>Write a function to average 3 numbers.</p>
+</section></section>
+<section><section id="stretch-break" class="titleslide slide level1"><h1>Stretch Break!</h1></section></section>
+<section><section id="control-structures" class="titleslide slide level1"><h1>Control structures</h1></section><section id="making-decisions" class="slide level2">
+<h1>Making decisions</h1>
+<pre><code>function positiveOrNegative(n) {
+  if (n &gt; 0) {
+      console.log(n + &quot; is positive&quot;);
+  } else {
+      console.log(n + &quot; is negative&quot;);
+  }
+}</code></pre>
+</section><section id="even-simpler" class="slide level2">
+<h1>Even simpler</h1>
+<pre><code>function isPositive(n) {
+  return (n &gt; 0);
+}
+
+if (isPositive(n)) 
+  console.log(n + &quot; is positive&quot;) 
+else 
+  console.log(n + &quot; is negative&quot;);</code></pre>
+</section><section id="shorter-for-experts" class="slide level2">
+<h1>Shorter (for experts)</h1>
+<pre><code>console.log(n + &quot; is &quot; + (n &gt; 0 ? &quot;positive&quot; : &quot;negative&quot;))</code></pre>
+</section><section id="repeating-yourself-do...while" class="slide level2">
+<h1>Repeating yourself (do...while)</h1>
+<pre><code>var x = 1;
+do {
+  console.log(x);
+  x = x + 1;
+} while (x &lt;= 10)</code></pre>
+</section><section id="repeating-yourself-while" class="slide level2">
+<h1>Repeating yourself (while)</h1>
+<pre><code>var x = 1;
+while (x &lt;= 10) {
+  console.log(x);
+  x = x + 1;
+}</code></pre>
+</section><section id="repeating-yourself-for" class="slide level2">
+<h1>Repeating yourself (for)</h1>
+<pre><code>var x;
+for (x=1; x &lt;= 10; x = x + 1) { 
+  console.log(x);
+}</code></pre>
+<ul>
+<li class="fragment"><code class="code">var x = 1;</code> Set the value at the start</li>
+<li class="fragment"><code class="code">{ console.log(x); }</code> What we do each time (a <strong>block</strong>)</li>
+<li class="fragment"><code class="code">x &lt;= 10;</code> Should we do it again?</li>
+<li class="fragment"><code class="code">x = x + 1</code> Set up for next time</li>
+</ul>
+</section><section id="slightly-shorter" class="slide level2">
+<h1>Slightly shorter</h1>
+<pre><code>for (var x=1; x &lt;= 10; x++) { 
+  console.log(x);
+}</code></pre>
+</section><section id="practice-2" class="slide level2">
+<h1>Practice</h1>
+<ul>
+<li>Count from 1 to 10 in the console.</li>
+<li>Now do it backwards.</li>
+<li>(Extra) Show whether each number is odd or even (hint: <code class="code">(n % 2 == 0)</code> when even)</li>
+</ul>
+</section></section>
+<section><section id="geeky-details" class="titleslide slide level1"><h1>Geeky details</h1></section><section id="operators" class="slide level2">
+<h1>Operators</h1>
+<pre><code>+ - * / % ++</code></pre>
+<p>Also + and - in front of a number</p>
+</section><section id="what-is-truth" class="slide level2">
+<h1>What is Truth?</h1>
+<ul>
+<li class="fragment">Strict <strong>true</strong> and <strong>false</strong> not required.</li>
+<li class="fragment"><em>Truthy</em> : number != 0, non-empty string, any object</li>
+<li class="fragment"><em>Falsy</em> : 0, '' and &quot;&quot;, NaN, null, undefined</li>
+</ul>
+</section><section id="coercion" class="slide level2">
+<h1>Coercion</h1>
+<pre><code>console.log(4 + &quot; is even&quot;)</code></pre>
+<ul>
+<li class="fragment">4 becomes &quot;4&quot;</li>
+<li class="fragment">Javascript converts types as needed</li>
+</ul>
+</section><section id="comparison" class="slide level2">
+<h1>Comparison</h1>
+<p>All true (<code class="code">var n = 4</code>)</p>
+<pre><code>n == 4
+n == &quot;4&quot;
+n != 3
+n &gt; 3
+n &gt; &quot;3&quot;</code></pre>
+</section><section id="comparison-1" class="slide level2">
+<h1>Comparison</h1>
+<p>Also true (<code class="code">var n = 4</code>)</p>
+<pre><code>n
+&quot;4&quot;
+&#39;4&#39;
+&#39;Four score and seven years ago...&#39;
+!false</code></pre>
+</section><section id="comparison-2" class="slide level2">
+<h1>Comparison</h1>
+<p>All false (<code class="code">var z = 0; var x;</code>)</p>
+<pre><code>z
+z != 0
+&#39;&#39;
+null
+x
+undefined</code></pre>
+</section><section id="strict-comparison" class="slide level2">
+<h1>Strict comparison</h1>
+<pre><code>var n = 4, z = 0;
+n === 4 // true
+n === 0 // false
+n === &quot;4&quot; // false
+z === 0 // true
+z === null // false
+n !== 3 // true</code></pre>
+</section><section id="practice-3" class="slide level2">
+<h1>Practice</h1>
+<ul>
+<li>Write <code class="code">isOdd(n)</code></li>
+<li>How short can you make it? (Hint: Use truthiness)</li>
+<li>Write <code class="code">isEven(n)</code> in a short form</li>
+</ul>
+</section></section>
+<section><section id="data-structures" class="titleslide slide level1"><h1>Data structures</h1></section><section id="making-a-list-arrays" class="slide level2">
+<h1>Making a list: Arrays</h1>
+<pre><code>var a = [1, 2, 3];
+var b = [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;];
+var c = [&#39;a&#39;, 1, &#39;b&#39;, 2];
+console.log(a.length);
+console.log(b[1]);
+c[4] = &#39;c&#39;;</code></pre>
+</section><section id="objects-preview" class="slide level2">
+<h1>Objects (preview)</h1>
+<pre><code>var point = {x: 5, y: 3};
+var wizard = {name: &quot;Great and mighty Oz&quot;, location: &quot;Emerald City&quot;, behindCurtain: true };
+console.log(wizard.name);
+console.log(wizard[name]);
+wizard.name = &quot;Oz&quot;;</code></pre>
+</section><section id="practice-4" class="slide level2">
+<h1>Practice</h1>
+<ul>
+<li>Make a list of your friends</li>
+<li>Make an object with your name and other information about you</li>
+<li>Print these using <code class="code">console.log()</code></li>
+</ul>
+</section></section>
+<section><section id="writing-quality-javascript" class="titleslide slide level1"><h1>Writing quality Javascript</h1></section><section id="if-you-forget-var..." class="slide level2">
+<h1>If you forget var...</h1>
+<pre><code>function area(r) {
+  // note: missing var
+  result = Math.PI * (r * r); 
+  return result;
+}
+console.log(area(1)); // 3.1415...
+console.log(result); // 3.1415</code></pre>
+<ul>
+<li class="fragment">the variable becomes <em>global</em></li>
+</ul>
+</section><section id="preventing-accidental-global-variables" class="slide level2">
+<h1>Preventing accidental global variables</h1>
+<pre><code>function area(r) {
+  &quot;use strict&quot;;
+  result = Math.PI * (r * r); &amp;LeftArrow; becomes an error (no var)
+  return result;
+}</code></pre>
+<ul>
+<li class="fragment"><code class="code">&quot;use strict;&quot;</code> enables <em>strict mode</em></li>
+<li class="fragment">Makes missing <em>var</em> an error</li>
+<li class="fragment">Use at start of script or function</li>
+</ul>
+</section><section id="guidelines" class="slide level2">
+<h1>Guidelines</h1>
+<ul>
+<li class="fragment"><code class="code">&quot;use strict;&quot;</code> at top of file or function</li>
+<li class="fragment"><code class="code">===</code> and <code class="code">!==</code> for equality</li>
+<li class="fragment">Check code with <a href="http://www.jslint.com">JSLint</a> or <a href="http://www.jshint.com">JSHint</a></li>
+</ul>
+</section><section id="practice-5" class="slide level2">
+<h1>Practice</h1>
+<ol type="1">
+<li>Declare <code class="code">i = 1;</code> in a script (by itself)</li>
+<li>Show it with <code class="code">console.log(j)</code></li>
+<li>What happens when you put <code class="code">&quot;use strict&quot;;</code> at the top of the script?</li>
+<li>What happens when you change <code class="code">i</code> into <code class="code">var i</code>?</li>
+<li>(Challenge) Declare <code class="code">var j = 2;</code> inside a function. Show it with console.log() inside and outside the function.</li>
+</ol>
+</section></section>
+<section><section id="a-working-with-objects" class="titleslide slide level1"><h1>2a: Working with objects</h1></section><section id="simple-objects-redux" class="slide level2">
+<h1>Simple objects (redux)</h1>
+<p>Collection of key-value pairs:</p>
+<pre><code>var point = {x: 5, y: 3};
+var oz = {
+  name: &quot;The great and mighty Oz&quot;,
+  location: &quot;Emerald City&quot;,
+  behindCurtain: true
+};</code></pre>
+<p>Accessing values:</p>
+<pre><code>console.log(oz.name);
+console.log(oz[name]);
+oz.name = &quot;Oz&quot;;</code></pre>
+</section><section id="object-behaviors" class="slide level2">
+<h1>Object behaviors</h1>
+<pre><code>var oz = {
+  name: &quot;The great and mighty Oz&quot;,
+  location: &quot;Emerald City&quot;,
+  behindCurtain: true,
+  introduce: function() {
+    console.log(&quot;I am &quot; + this.name)
+  }
+};
+
+oz.introduce();</code></pre>
+</section><section id="getset" class="slide level2">
+<h1>Get/Set</h1>
+<p><em>Not implemented by all browsers</em></p>
+<pre><code>var oz = {
+  name: get() { return &quot;The great and mighty Oz&quot; },
+  location: get() { return  &quot;Emerald City&quot; },
+  behindCurtain: set(hiding) { 
+    if (hiding) alert(&quot;Pay no attention to the man behind the curtain!&quot;) },
+  introduce: function() {
+    console.log(&quot;I am &quot; + this.name)
+  }
+};
+
+oz.name = &quot;Glinda the Good&quot; &lt;-- not allowed!</code></pre>
+</section><section id="object-terminology" class="slide level2">
+<h1>Object terminology</h1>
+<ul>
+<li class="fragment"><strong>method</strong> = function visible in an object</li>
+<li class="fragment"><strong>property</strong> = data (variable) visible in an object</li>
+<li class="fragment"><strong>this</strong> used inside an object to get its own methods and properties</li>
+<li class="fragment"><strong>accessor</strong> = the get and set methods</li>
+</ul>
+</section><section id="practice-6" class="slide level2">
+<h1>Practice</h1>
+<ul>
+<li>Make an object with your name and other information about you</li>
+<li>Add a method that prints your name to the console. Call it.</li>
+</ul>
+</section></section>
+<section><section id="classes" class="titleslide slide level1"><h1>Classes</h1></section><section id="another-way-to-make-objects" class="slide level2">
+<h1>Another way to make objects</h1>
+<pre><code>var oz = new Object();
+oz.name = &quot;The great and mighty Oz&quot;;
+oz.location = &quot;Emerald City&quot;;</code></pre>
+</section><section id="class-person" class="slide level2">
+<h1>Class &quot;Person&quot;</h1>
+<pre><code>function Person(name, location) {
+    this.name = name;
+    this.location = location;
+}
+
+var gandalf = new Person(&quot;Gandalf&quot;, &quot;Middle Earth&quot;);</code></pre>
+</section><section id="making-introductions" class="slide level2">
+<h1>Making introductions</h1>
+<pre><code>function Person(name, location) {
+    this.name = name;
+    this.location = location;
+}
+
+Person.prototype.introduce = function() {
+    console.log(&quot;I am &quot; + this.name);
+}
+
+var gandalf = new Person(&quot;Gandalf&quot;, &quot;Middle Earth&quot;);
+gandalf.introduce();</code></pre>
+</section><section id="wizards-are-people-too" class="slide level2">
+<h1>Wizards are people too</h1>
+<pre><code>function Wizard(name, location, orientation) {
+    Person.call(this, name, location);
+    this.orientation = orientation;
+}
+
+Wizard.prototype = new Person();
+
+Wizard.prototype.isGood = function() { 
+  return this.orientation == &quot;good&quot;;
+}
+
+var gandalf = new Wizard(&quot;Gandalf&quot;, &quot;Middle Earth&quot;, &quot;good&quot;);
+console.log(gandalf.isGood());</code></pre>
+</section><section id="practice-7" class="slide level2">
+<h1>Practice</h1>
+<ul>
+<li>Create a class to hold your name</li>
+<li>Add a method that prints your name to the console. Call it.</li>
+</ul>
+</section></section>
+<section><section id="some-built-in-classes" class="titleslide slide level1"><h1>Some built-in classes</h1></section><section id="string" class="slide level2">
+<h1>String</h1>
+<pre><code>var greeting = &quot;Hello, World&quot;;
+console.log(greeting.length); 
+
+var insult = new String(&quot;Your mother smells of Elderberries&quot;);
+console.log(insult.contains(&quot;Elderberries&quot;));</code></pre>
+</section><section id="some-string-methods" class="slide level2">
+<h1>Some String methods</h1>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String reference</a></p>
+<ul>
+<li><code>String.prototype.length</code> : read-only length</li>
+<li><code>String.prototype.contains(*substring*)</code> : true if <em>substring</em> is found within <em>string</em></li>
+<li><code>String.prototype.concat(*another_string*)</code> : same as <code>string + another_string</code></li>
+<li><code>String.protoype.trim()</code> : removes whitespace before and after</li>
+</ul>
+</section><section id="finding-things" class="slide level2">
+<h1>Finding things</h1>
+<pre><code>var s = &#39;abcd&#39;;
+s.length; // 4
+s[0]; // &#39;a&#39;
+s.indexOf(&#39;b&#39;); // 1
+s.indexOf(&#39;z&#39;); // -1</code></pre>
+</section><section id="array" class="slide level2">
+<h1>Array</h1>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array reference</a></p>
+<pre><code>var a = new Array(&#39;a&#39;, &#39;b&#39;, &#39;c&#39;);
+console.log(a); // [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;];
+var a2 = [&#39;d&#39;, 2, &#39;e&#39;];
+a.length; // 3
+a.indexOf(&#39;b&#39;); // 1</code></pre>
+</section><section id="manipulating-arrays" class="slide level2">
+<h1>Manipulating arrays</h1>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array reference</a></p>
+<pre><code>var a = [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]
+a[4] = &#39;d&#39;; // [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;]
+a.push(&#39;e&#39;); // [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;]
+a.pop(); // returns &#39;e&#39;, now [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;]</code></pre>
+</section></section>
+<section><section id="b-html" class="titleslide slide level1"><h1>2b: HTML!</h1></section><section id="back-to-our-test-page" class="slide level2">
+<h1>Back to our test page</h1>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="dt">&lt;!DOCTYPE </span>html<span class="dt">&gt;</span>
+<span class="kw">&lt;meta</span><span class="ot"> doctype=</span><span class="st">utf-8</span><span class="kw">&gt;</span>
+<span class="kw">&lt;title&gt;</span>Javascript practice<span class="kw">&lt;/title&gt;</span>
+<span class="kw">&lt;h1&gt;</span>Just a practice page<span class="kw">&lt;/h1&gt;</span>
+<span class="kw">&lt;script&gt;</span>
+
+<span class="kw">&lt;/script&gt;</span></code></pre>
+</section><section id="find-the-h1" class="slide level2">
+<h1>Find the &lt;h1&gt;</h1>
+<pre><code>var h1 = document.querySelector(&quot;h1&quot;);</code></pre>
+<aside class="notes">
+    
+Look at this HTML element in the debugger. Common properties. What happens when you change a property.
+</aside>
+
+
+</section><section id="another-way" class="slide level2">
+<h1>Another way</h1>
+<pre><code>var headings = document.getElementsByTagName(&quot;h1&quot;);
+var h1 = headings[0];</code></pre>
+</section><section id="playing-with-color" class="slide level2">
+<h1>Playing with color</h1>
+<pre><code>var h1 = document.querySelector(&quot;h1&quot;);
+h1.style.color = &#39;red&#39;;</code></pre>
+<aside class="notes">
+    
+Look at h1 in the debugger. What styles does it have? Try changing them.
+</aside>
+
+</section><section id="changing-an-element" class="slide level2">
+<h1>Changing an element</h1>
+<pre><code>var h1 = document.querySelector(&quot;h1&quot;);
+h1.innerHTML = &quot;Look at me!&quot;;</code></pre>
+</section><section id="practice-8" class="slide level2">
+<h1>Practice</h1>
+<ul>
+<li>Put your name in the h1</li>
+<li>Change the color of the h1</li>
+<li>(Extra credit) Change the font of the h1</li>
+</ul>
+</section></section>
+<section><section id="playtime" class="titleslide slide level1"><h1>Playtime!</h1></section><section id="try-this" class="slide level2">
+<h1>Try this</h1>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="dt">&lt;!DOCTYPE </span>html<span class="dt">&gt;</span>
+<span class="kw">&lt;meta</span><span class="ot"> doctype=</span><span class="st">utf-8</span><span class="kw">&gt;</span>
+<span class="kw">&lt;title&gt;</span>Javascript practice<span class="kw">&lt;/title&gt;</span>
+<span class="kw">&lt;style&gt;</span>h1 <span class="kw">{</span> <span class="kw">-webkit-transition</span> <span class="kw">:</span> color <span class="dt">5s</span> <span class="kw">}</span>
+&lt;h1&gt;Just a practice page&lt;/h1&gt;
+&lt;script&gt;
+  document<span class="fl">.querySelector</span>(<span class="st">&#39;h1&#39;</span>)<span class="fl">.style.color</span> = <span class="st">&#39;red&#39;</span>;
+&lt;/script&gt;</code></pre>
+</section><section id="super-cheap-animation" class="slide level2">
+<h1>Super cheap animation</h1>
+<pre><code>var h1 =  document.querySelector(&#39;h1&#39;);
+var color = &#39;red&#39;;
+function changeColor() {
+    if (color == &#39;red&#39;) 
+        color = &#39;green&#39;;
+    else
+        color = &#39;red&#39;;
+    h1.style.color = color;
+}
+
+setInterval(changeColor, 5000);</code></pre>
+</section></section>
+<section><section id="building-interactions" class="titleslide slide level1"><h1>Building interactions</h1></section><section id="start-with-a-button" class="slide level2">
+<h1>Start with a button</h1>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="dt">&lt;!DOCTYPE </span>html<span class="dt">&gt;</span>
+<span class="kw">&lt;meta</span><span class="ot"> doctype=</span><span class="st">utf-8</span><span class="kw">&gt;</span>
+<span class="kw">&lt;title&gt;</span>Interactive<span class="kw">&lt;/title&gt;</span>
+<span class="kw">&lt;button</span><span class="ot"> id=</span><span class="st">&quot;b&quot;</span><span class="ot"> onclick=</span><span class="st">&quot;alert(&#39;Hello!&#39;)&quot;</span><span class="kw">&gt;</span>Click me!<span class="kw">&lt;/button&gt;</span></code></pre>
+</section><section id="click" class="slide level2">
+<h1>Click!</h1>
+<pre><code>&lt;button id=&quot;b&quot; onclick=&quot;alert(&#39;Hello!&#39;)&quot;&gt;Click me!&lt;/button&gt;</code></pre>
+<ul>
+<li class="fragment"><code class="code">onclick</code> defines a handler for a <strong>click event</strong></li>
+</ul>
+</section><section id="preferred-approach" class="slide level2">
+<h1>Preferred approach</h1>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="dt">&lt;!DOCTYPE </span>html<span class="dt">&gt;</span>
+<span class="kw">&lt;meta</span><span class="ot"> doctype=</span><span class="st">utf-8</span><span class="kw">&gt;</span>
+<span class="kw">&lt;title&gt;</span>Interactive<span class="kw">&lt;/title&gt;</span>
+<span class="kw">&lt;button</span><span class="ot"> id=</span><span class="st">&quot;b&quot;</span><span class="kw">&gt;</span>Click me!<span class="kw">&lt;/button&gt;</span>
+<span class="kw">&lt;script&gt;</span>
+  <span class="kw">var</span> b = <span class="ot">document</span>.<span class="fu">querySelector</span>(<span class="st">&#39;#b&#39;</span>);
+  <span class="ot">b</span>.<span class="fu">onclick</span> = <span class="kw">function</span>() { <span class="fu">alert</span>(<span class="st">&#39;Hello!&#39;</span>) };
+&lt;<span class="ot">/script&gt;</span></code></pre>
+<ul>
+<li class="fragment">Move script out of the button tag</li>
+</ul>
+</section><section id="all-the-buttons" class="slide level2">
+<h1>All the buttons!</h1>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="dt">&lt;!DOCTYPE </span>html<span class="dt">&gt;</span>
+<span class="kw">&lt;meta</span><span class="ot"> doctype=</span><span class="st">utf-8</span><span class="kw">&gt;</span>
+<span class="kw">&lt;title&gt;</span>Buttons!<span class="kw">&lt;/title&gt;</span>
+<span class="kw">&lt;button</span><span class="ot"> id=</span><span class="st">&quot;a&quot;</span><span class="kw">&gt;</span>Click me!<span class="kw">&lt;/button&gt;</span>
+<span class="kw">&lt;button</span><span class="ot"> id=</span><span class="st">&quot;b&quot;</span><span class="kw">&gt;</span>Click me!<span class="kw">&lt;/button&gt;</span>
+<span class="kw">&lt;button</span><span class="ot"> id=</span><span class="st">&quot;c&quot;</span><span class="kw">&gt;</span>Click me!<span class="kw">&lt;/button&gt;</span>
+<span class="kw">&lt;button</span><span class="ot"> id=</span><span class="st">&quot;d&quot;</span><span class="kw">&gt;</span>Click me!<span class="kw">&lt;/button&gt;</span>
+<span class="kw">&lt;script&gt;</span>
+  <span class="kw">var</span> buttons = <span class="ot">document</span>.<span class="fu">querySelectorAll</span>(<span class="st">&#39;button&#39;</span>);
+  <span class="kw">for</span> (<span class="kw">var</span> i=<span class="dv">0</span>; i &lt; <span class="ot">buttons</span>.<span class="fu">length</span>; i++) {
+    buttons[i].<span class="fu">onclick</span> = <span class="kw">function</span>() { <span class="fu">alert</span>(<span class="st">&#39;Hello!&#39;</span>) };
+  }
+&lt;<span class="ot">/script&gt;</span></code></pre>
+</section><section id="events" class="slide level2">
+<h1>Events</h1>
+<p>An <strong><a href="https://developer.mozilla.org/en-US/docs/Web/API/Event">Event</a></strong> is:</p>
+<ul>
+<li class="fragment">Delivered to browser for every action</li>
+<li class="fragment">e.g. <strong>click</strong>, <strong>mousedown</strong>, <strong>mouseup</strong></li>
+<li class="fragment">e.g. <strong>keydown</strong>, <strong>keyup</strong>, <strong>resize</strong></li>
+</ul>
+</section><section class="slide level2">
+
+<p>An <strong><a href="https://developer.mozilla.org/en-US/docs/Web/API/Event">Event</a></strong> has properties:</p>
+<ul>
+<li class="fragment"><code>event.type</code></li>
+<li class="fragment"><code>event.timeStamp</code></li>
+<li class="fragment"><code>event.target</code></li>
+<li class="fragment">(and more)</li>
+</ul>
+</section><section id="whack-a-button" class="slide level2">
+<h1>Whack-a-button!</h1>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="dt">&lt;!DOCTYPE </span>html<span class="dt">&gt;</span>
+<span class="kw">&lt;meta</span><span class="ot"> doctype=</span><span class="st">utf-8</span><span class="kw">&gt;</span>
+<span class="kw">&lt;title&gt;</span>Which button?<span class="kw">&lt;/title&gt;</span>
+<span class="kw">&lt;button</span><span class="ot"> id=</span><span class="st">&quot;a&quot;</span><span class="kw">&gt;</span>A<span class="kw">&lt;/button&gt;</span>
+<span class="kw">&lt;button</span><span class="ot"> id=</span><span class="st">&quot;b&quot;</span><span class="kw">&gt;</span>B<span class="kw">&lt;/button&gt;</span>
+<span class="kw">&lt;button</span><span class="ot"> id=</span><span class="st">&quot;c&quot;</span><span class="kw">&gt;</span>C<span class="kw">&lt;/button&gt;</span>
+<span class="kw">&lt;button</span><span class="ot"> id=</span><span class="st">&quot;d&quot;</span><span class="kw">&gt;</span>D<span class="kw">&lt;/button&gt;</span>
+<span class="kw">&lt;script&gt;</span>
+  <span class="kw">var</span> buttons = <span class="ot">document</span>.<span class="fu">querySelectorAll</span>(<span class="st">&#39;button&#39;</span>);
+  <span class="kw">for</span> (<span class="kw">var</span> i=<span class="dv">0</span>; i &lt; <span class="ot">buttons</span>.<span class="fu">length</span>; i++) {
+    buttons[i].<span class="fu">onclick</span> = <span class="kw">function</span>(event) { 
+        <span class="fu">alert</span>(<span class="st">&quot;Clicked &quot;</span> + <span class="ot">event</span>.<span class="ot">target</span>.<span class="fu">id</span>) 
+    };
+  }
+&lt;<span class="ot">/script&gt;</span></code></pre>
+</section><section id="lose-the-loop" class="slide level2">
+<h1>Lose the loop</h1>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="dt">&lt;!DOCTYPE </span>html<span class="dt">&gt;</span>
+<span class="kw">&lt;meta</span><span class="ot"> doctype=</span><span class="st">utf-8</span><span class="kw">&gt;</span>
+<span class="kw">&lt;title&gt;</span>Which button?<span class="kw">&lt;/title&gt;</span>
+<span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;buttons&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;button</span><span class="ot"> id=</span><span class="st">&quot;a&quot;</span><span class="kw">&gt;</span>A<span class="kw">&lt;/button&gt;</span>
+    <span class="kw">&lt;button</span><span class="ot"> id=</span><span class="st">&quot;b&quot;</span><span class="kw">&gt;</span>B<span class="kw">&lt;/button&gt;</span>
+    <span class="kw">&lt;button</span><span class="ot"> id=</span><span class="st">&quot;c&quot;</span><span class="kw">&gt;</span>C<span class="kw">&lt;/button&gt;</span>
+    <span class="kw">&lt;button</span><span class="ot"> id=</span><span class="st">&quot;d&quot;</span><span class="kw">&gt;</span>D<span class="kw">&lt;/button&gt;</span>
+<span class="kw">&lt;/div&gt;</span>
+<span class="kw">&lt;script&gt;</span>
+  <span class="kw">var</span> buttons = <span class="ot">document</span>.<span class="fu">querySelector</span>(<span class="st">&#39;#buttons&#39;</span>);
+  <span class="ot">buttons</span>.<span class="fu">onclick</span> = <span class="kw">function</span>(event) { 
+    <span class="fu">alert</span>(<span class="st">&quot;Clicked &quot;</span> + <span class="ot">event</span>.<span class="ot">target</span>.<span class="fu">id</span>) 
+  }
+&lt;<span class="ot">/script&gt;</span></code></pre>
+</section><section id="event-bubbling" class="slide level2">
+<h1>Event bubbling</h1>
+<ul>
+<li class="fragment">If there's no handler for the target...</li>
+<li class="fragment">...deliver it to the parent.</li>
+<li class="fragment"><code class="code">event.target</code> is the original target</li>
+<li class="fragment"><code class="code">event.currentTarget</code> is where you registered the handler</li>
+</ul>
+</section><section id="practice-9" class="slide level2">
+<h1>Practice</h1>
+<ol type="1">
+<li>Add more buttons!</li>
+<li>Try other events (e.g. <strong>mousedown</strong>, <strong>mouseup</strong>, <strong>mouseover</strong>, <strong>mouseout</strong>)</li>
+<li>Try handling click events on a link.</li>
+</ol>
+</section></section>
+<section><section id="the-load-event" class="titleslide slide level1"><h1>The load event</h1></section><section id="party-like-its-1999" class="slide level2">
+<h1>Party like it's 1999</h1>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="dt">&lt;!DOCTYPE </span>HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;
+   &quot;http://www.w3.org/TR/html4/loose.dtd&quot;<span class="dt">&gt;</span>
+<span class="kw">&lt;html&gt;</span>
+<span class="kw">&lt;head&gt;</span>
+  <span class="kw">&lt;title&gt;</span>Button<span class="kw">&lt;/title&gt;</span>
+  <span class="kw">&lt;script&gt;</span>
+    <span class="kw">var</span> b = <span class="ot">document</span>.<span class="fu">getElementById</span>(<span class="st">&#39;b&#39;</span>);
+    <span class="ot">b</span>.<span class="fu">onclick</span> = <span class="kw">function</span>() { <span class="fu">alert</span>(<span class="st">&#39;Hello!&#39;</span>) };
+  &lt;<span class="ot">/script&gt;</span>
+<span class="ot">&lt;/head</span>&gt;
+&lt;body&gt;
+  &lt;button id=<span class="st">&quot;b&quot;</span>&gt;Click me!&lt;<span class="ot">/button&gt;</span>
+<span class="ot">&lt;/body</span>&gt;
+&lt;<span class="ot">/html&gt;</span></code></pre>
+<aside class="notes">
+    
+Old-school: scripts in the head of the page. The problem is, the button won't exist when that script runs (before the body of the page.)
+</aside>
+
+</section><section id="fixing-the-problem" class="slide level2">
+<h1>Fixing the problem</h1>
+<pre><code>window.onload = function() {
+    var b = document.getElementById(&#39;b&#39;);
+    b.onclick = function() { alert(&#39;Hello!&#39;) };
+}</code></pre>
+</section><section id="the-load-event-1" class="slide level2">
+<h1>The load event</h1>
+<ul>
+<li class="fragment">Fired when a resource (and any dependent resources) has been loaded</li>
+<li class="fragment">e.g. when you have images, audio, video, etc. to manipulate.</li>
+</ul>
+</section><section id="clicky-images" class="slide level2">
+<h1>Clicky images</h1>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="dt">&lt;!DOCTYPE </span>html<span class="dt">&gt;</span>
+<span class="kw">&lt;meta</span><span class="ot"> doctype=</span><span class="st">utf-8</span><span class="kw">&gt;</span>
+<span class="kw">&lt;title&gt;</span>Multiple Images (1)<span class="kw">&lt;/title&gt;</span>
+<span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;images&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;img</span><span class="ot"> src=</span><span class="st">&quot;button1.png&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;img</span><span class="ot"> src=</span><span class="st">&quot;button1.png&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;img</span><span class="ot"> src=</span><span class="st">&quot;button1.png&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;img</span><span class="ot"> src=</span><span class="st">&quot;button1.png&quot;</span><span class="kw">&gt;</span>
+<span class="kw">&lt;/div&gt;</span>
+<span class="kw">&lt;script&gt;</span>
+<span class="ot">window</span>.<span class="fu">onload</span> = <span class="kw">function</span>() {
+  <span class="kw">var</span> images = <span class="ot">document</span>.<span class="fu">querySelector</span>(<span class="st">&#39;#images&#39;</span>);
+  <span class="ot">images</span>.<span class="fu">onclick</span> = <span class="kw">function</span>() { <span class="fu">alert</span>(<span class="st">&#39;Hello!&#39;</span>) };
+}
+&lt;<span class="ot">/script&gt;</span></code></pre>
+</section><section id="practice-10" class="slide level2">
+<h1>Practice</h1>
+<ol type="1">
+<li>Find your practice page</li>
+<li>Wrap the script in a load handler (<code>window.onload</code>)</li>
+<li>(Extra) Use <code>addEventListener</code> instead of <code>onload</code></li>
+</ol>
+</section></section>
+<section><section id="forms" class="titleslide slide level1"><h1>Forms</h1></section><section id="greetings" class="slide level2">
+<h1>Greetings!</h1>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="dt">&lt;!DOCTYPE </span>html<span class="dt">&gt;</span>
+<span class="kw">&lt;meta</span><span class="ot"> doctype=</span><span class="st">utf-8</span><span class="kw">&gt;</span>
+<span class="kw">&lt;title&gt;</span>Greetings<span class="kw">&lt;/title&gt;</span>
+<span class="kw">&lt;form&gt;</span>
+    <span class="kw">&lt;label</span><span class="ot"> for=</span><span class="st">&quot;name&quot;</span><span class="kw">&gt;</span>What is your name?<span class="kw">&lt;/label&gt;</span>
+    <span class="kw">&lt;input</span><span class="ot"> type=</span><span class="st">&quot;text&quot;</span><span class="ot"> id=</span><span class="st">&quot;name&quot;</span><span class="kw">&gt;</span>
+<span class="kw">&lt;/form&gt;</span>
+<span class="kw">&lt;script&gt;</span>
+<span class="ot">window</span>.<span class="fu">onload</span> = <span class="kw">function</span>() {
+  <span class="kw">var</span> form = <span class="ot">document</span>.<span class="fu">forms</span>[<span class="dv">0</span>];
+  <span class="ot">form</span>.<span class="fu">onsubmit</span> = <span class="kw">function</span>() { 
+    <span class="kw">var</span> input = <span class="ot">form</span>.<span class="fu">elements</span>[<span class="dv">0</span>];
+    <span class="fu">alert</span>(<span class="st">&#39;Hello, &#39;</span> + <span class="ot">input</span>.<span class="fu">value</span>);
+  }
+}
+&lt;<span class="ot">/script&gt;</span></code></pre>
+</section><section id="a-mystery" class="slide level2">
+<h1>A mystery</h1>
+<ol type="1">
+<li>Enter your name and hit enter.</li>
+<li>Leave the alert up.</li>
+<li>Notice your name in the input box.</li>
+<li>Dismiss the alert</li>
+<li>What happens to the name field?</li>
+</ol>
+</section><section id="default-actions" class="slide level2">
+<h1>Default actions</h1>
+<ul>
+<li class="fragment">The browser handles many events itself.</li>
+<li class="fragment">The browser gets the event after your handler.</li>
+<li class="fragment">Sequence: <em>your code</em> --&gt; <em>browser</em></li>
+<li class="fragment"><em>What did the browser do with your form?</em></li>
+</ul>
+</section><section id="keeping-the-event-to-yourself" class="slide level2">
+<h1>Keeping the event to yourself</h1>
+<pre><code>form.onsubmit = function(event) { 
+    var input = form.elements[0];
+    alert(&#39;Hello, &#39; + input.value);
+    event.preventDefault();
+}</code></pre>
+</section><section id="note-the-old-way-of-doing-this" class="slide level2">
+<h1>Note: The old way of doing this</h1>
+<pre><code>form.onsubmit = function(event) { 
+    var input = form.elements[0];
+    alert(&#39;Hello, &#39; + input.value);
+    return false; // deprecated
+}</code></pre>
+</section><section id="practice-11" class="slide level2">
+<h1>Practice</h1>
+<ol type="1">
+<li>Make your name appear in the span</li>
+</ol>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;meta doctype=utf-8&gt;
+&lt;title&gt;Form practice&lt;/title&gt;
+&lt;form&gt;
+    &lt;input type=&quot;text&quot; placeholder=&quot;What is your name?&quot;&gt;
+&lt;/form&gt;
+&lt;p&gt;Welcome, &lt;span id=&quot;name&quot;&gt;stranger&lt;/span&gt;
+&lt;script&gt;
+window.onload = function() {
+  var form = document.forms[0];
+  var input = form.elements[0];
+  form.onsubmit = function(event) { 
+    // Write this. 
+    // 1. Get the text from the input
+    // 2. Find the span and change its innerHTML
+    // 3. Optional: Reset the input to empty
+  }
+}
+&lt;/script&gt;</code></pre>
+</section></section>
+<section><section id="jquery" class="titleslide slide level1"><h1>jQuery</h1></section><section class="slide level2">
+
+<p><a href="http://www.jquery.com">jQuery.com</a></p>
+<ul>
+<li>Utility library to simplify client-side programming</li>
+<li>Normalizes differences between browsers (<em>ahem</em> IE...)</li>
+<li>Provides simple animations</li>
+<li>Simplifies complex tasks (e.g. Ajax)</li>
+</ul>
+</section><section id="the-almighty" class="slide level2">
+<h1>The almighty $</h1>
+<p><code>$()</code> is the all-purpose function: - Searches for elements by selector (like querySelector/querySelectorAll) - Adds utility functions to DOM elements</p>
+</section><section id="interactivity-and-animation" class="slide level2">
+<h1>Interactivity and animation</h1>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="dt">&lt;!DOCTYPE </span>html<span class="dt">&gt;</span>
+<span class="kw">&lt;meta</span><span class="ot"> doctype=</span><span class="st">utf-8</span><span class="kw">&gt;</span>
+<span class="kw">&lt;title&gt;</span>jQuery Animations<span class="kw">&lt;/title&gt;</span>
+<span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&quot;lib/jquery-2.1.1.js&quot;</span><span class="kw">&gt;&lt;/script&gt;</span>
+<span class="kw">&lt;h1&gt;</span>Hello!<span class="kw">&lt;/h1&gt;</span>
+<span class="kw">&lt;script&gt;</span>
+<span class="fu">$</span>(document).<span class="fu">ready</span>(<span class="kw">function</span>() {
+  <span class="kw">var</span> h1 = <span class="fu">$</span>(<span class="st">&#39;h1&#39;</span>);
+
+  <span class="kw">var</span> b1 = <span class="fu">$</span>(<span class="st">&#39;&lt;button&gt;Fade in&lt;/button&gt;&#39;</span>);
+  <span class="ot">b1</span>.<span class="fu">insertAfter</span>(h1);
+  <span class="ot">b1</span>.<span class="fu">click</span>(<span class="kw">function</span>() { <span class="ot">h1</span>.<span class="fu">fadeIn</span>() });
+});
+&lt;<span class="ot">/script&gt;</span></code></pre>
+</section><section id="method-chaining" class="slide level2">
+<h1>Method chaining</h1>
+<pre><code>var b1 = $(&#39;&lt;button&gt;Fade in&lt;/button&gt;&#39;);
+b1.insertAfter(h1);
+b1.click(function() { h1.fadeIn() });</code></pre>
+<p>vs.</p>
+<pre><code>$(&#39;&lt;button&gt;Fade out&lt;/button&gt;&#39;)
+  .insertAfter(h1)
+  .click(function() { h1.fadeOut() });</code></pre>
+</section><section id="forms-example" class="slide level2">
+<h1>Forms example</h1>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="dt">&lt;!DOCTYPE </span>html<span class="dt">&gt;</span>
+<span class="kw">&lt;meta</span><span class="ot"> doctype=</span><span class="st">utf-8</span><span class="kw">&gt;</span>
+<span class="kw">&lt;title&gt;</span>jQuery Form<span class="kw">&lt;/title&gt;</span>
+<span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&quot;lib/jquery-2.1.1.js&quot;</span><span class="kw">&gt;&lt;/script&gt;</span>
+<span class="kw">&lt;form&gt;</span>
+    <span class="kw">&lt;input</span><span class="ot"> type=</span><span class="st">&quot;text&quot;</span><span class="ot"> placeholder=</span><span class="st">&quot;What is your name?&quot;</span><span class="kw">&gt;</span>
+<span class="kw">&lt;/form&gt;</span>
+<span class="kw">&lt;p&gt;</span>Welcome, <span class="kw">&lt;span</span><span class="ot"> id=</span><span class="st">&quot;name&quot;</span><span class="kw">&gt;</span>stranger<span class="kw">&lt;/span&gt;</span>
+<span class="kw">&lt;script&gt;</span>
+<span class="fu">$</span>(document).<span class="fu">ready</span>(<span class="kw">function</span>() {
+  <span class="kw">var</span> form = <span class="fu">$</span>(<span class="ot">document</span>.<span class="fu">forms</span>[<span class="dv">0</span>]); <span class="co">// or $(&#39;form&#39;)</span>
+  <span class="kw">var</span> input = <span class="fu">$</span>(<span class="st">&#39;input&#39;</span>);
+  <span class="ot">form</span>.<span class="fu">submit</span>(<span class="kw">function</span>(event) { 
+    <span class="fu">$</span>(<span class="st">&#39;#name&#39;</span>).<span class="fu">html</span>(<span class="ot">input</span>.<span class="fu">val</span>());
+    <span class="ot">input</span>.<span class="fu">val</span>(<span class="st">&#39;&#39;</span>);
+    <span class="ot">event</span>.<span class="fu">preventDefault</span>();
+  })
+});
+&lt;<span class="ot">/script&gt;</span></code></pre>
+</section><section id="practice-12" class="slide level2">
+<h1>Practice</h1>
+<p>Using the form example: 1. Hide the paragraph when the page first loads. 2. On submit, animate it into view. 3. (Extra) Hide the paragraph if the entered text is empty. (Hint: <code>if ('')</code> is the same as <code>if (false)</code> )</p>
+</section></section>
+<section><section id="compatibility-reliability" class="titleslide slide level1"><h1>Compatibility &amp; Reliability</h1></section><section id="a-problem..." class="slide level2">
+<h1>A problem...</h1>
+<p>Not all browsers speak the same language</p>
+<ul>
+<li>Two flavors of Javascript: ES3 vs. ES5</li>
+<li>...and JScript</li>
+<li>(ES3/JScript: IE &lt; 9)</li>
+</ul>
+</section><section id="another-problem..." class="slide level2">
+<h1>Another problem...</h1>
+<p>Not all browsers <s>speak the same language</s> have the same APIs</p>
+<ul>
+<li>DOM level 2 vs. DOM level 3</li>
+<li>Event model differences</li>
+</ul>
+</section><section id="solutions" class="slide level2">
+<h1>Solutions</h1>
+<ul>
+<li>Compatibility tools: jQuery, ES5-shim, Modernizr</li>
+<li>Testing tools: QUnit, Jasmine, JSTestDriver, Selenium</li>
+</ul>
+</section></section>
+<section><section id="qunit" class="titleslide slide level1"><h1>QUnit</h1></section><section id="lets-test-some-code" class="slide level2">
+<h1>Let's test some code</h1>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;title&gt;Unit testing&lt;/title&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;http://code.jquery.com/qunit/qunit-1.14.0.css&quot;&gt;
+&lt;div id=&quot;qunit&quot;&gt;&lt;/div&gt;
+&lt;script src=&quot;http://code.jquery.com/qunit/qunit-1.14.0.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  function average(x, y) {
+    return (x + y) / 2;
+  }
+&lt;/script&gt;
+&lt;script&gt;
+  // ===== Tests =====
+  module(&quot;Averages&quot;);
+  
+  test(&quot;Two values&quot;, function() {
+    equal(average(2, 4), 3, &quot;Even numbers&quot;);
+    equal(average(1, 2), 1.5, &quot;Adjacent numbers&quot;);
+  });
+&lt;/script&gt;</code></pre>
+</section><section id="the-setup" class="slide level2">
+<h1>The setup</h1>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;title&gt;Unit testing&lt;/title&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;http://code.jquery.com/qunit/qunit-1.14.0.css&quot;&gt;
+&lt;div id=&quot;qunit&quot;&gt;&lt;/div&gt;
+&lt;script src=&quot;http://code.jquery.com/qunit/qunit-1.14.0.js&quot;&gt;&lt;/script&gt;
+&lt;!-- Tests here --&gt;</code></pre>
+</section><section id="the-tests" class="slide level2">
+<h1>The tests</h1>
+<pre><code>  module(&quot;Averages&quot;);
+  
+  test(&quot;Two values&quot;, function() {
+    equal(average(2, 4), 3, &quot;Even numbers&quot;);
+    equal(average(1, 2), 1.5, &quot;Adjacent numbers&quot;);
+  });
+ ```
+
+ ## Testing HTML
+
+ ```
+ &lt;!DOCTYPE html&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;title&gt;Table Example&lt;/title&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;http://code.jquery.com/qunit/qunit-1.14.0.css&quot;&gt;
+&lt;div id=&quot;qunit&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;qunit-fixture&quot;&gt;
+    &lt;table id=testTable /&gt;
+&lt;/div&gt;
+&lt;script src=&quot;http://code.jquery.com/jquery-2.1.1.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;http://code.jquery.com/qunit/qunit-1.14.0.js&quot;&gt;&lt;/script&gt;</code></pre>
+</section><section id="the-code" class="slide level2">
+<h1>The code</h1>
+<pre><code>function addRow(numRows) {
+  numRows = numRows || 1;
+  var table = $(&#39;#testTable&#39;);
+  for (var i=0; i &lt; numRows; i++) {
+      table.append(&quot;&lt;tr&gt;&lt;td&gt;Data!&lt;/td&gt;&lt;/tr&gt;&quot;);
+  }
+}
+
+// ===== Tests =====
+
+module(&quot;Table modification&quot;);
+
+test(&quot;Initial conditions&quot;, function() {
+  ok($(&#39;#testTable&#39;), &quot;We have the table&quot;);
+  equal($(&#39;#testTable tr&#39;).length, 0, &quot;No rows&quot;);
+});
+
+test(&quot;Add one row&quot;, function() {
+  addRow();
+  equal($(&#39;#testTable tr&#39;).length, 1, &quot;One row&quot;);
+});</code></pre>
+</section><section id="jstestrunner" class="slide level2">
+<h1>JSTestRunner</h1>
+<ul>
+<li>Run tests on multiple browsers concurrently</li>
+</ul>
+</section><section id="practice-13" class="slide level2">
+<h1>Practice</h1>
+<ol type="1">
+<li>Can you implement averaging three numbers? (Write the test, watch it fail, fix the code, watch it pass)</li>
+<li>Can you average <em>n</em> numbers? (Hint: <code>arguments.length</code> and <code>arguments[n]</code>)</li>
+<li>(Extra) Add a test fixture</li>
+</ol>
+</section></section>
+<section><section id="speak-javascript-like-a-native" class="titleslide slide level1"><h1>Speak Javascript like a native</h1></section><section id="please-remember-three-things" class="slide level2">
+<h1>Please remember three things</h1>
+<ol type="1">
+<li><em>Everything</em> is an object.</li>
+<li>References connect objects.</li>
+<li>Unused objects are deleted (<em>garbage collected</em>)</li>
+</ol>
+<p><em>When in doubt, draw a picture of the objects and their connections</em></p>
+</section><section id="what-makes-javascript-different" class="slide level2">
+<h1>What makes Javascript different?</h1>
+<ol type="1">
+<li>&quot;First-class&quot; functions</li>
+<li>Closures</li>
+<li>Dynamic <code>this</code></li>
+<li>Many ways to create classes</li>
+</ol>
+<p><em>Inspired by Angus Croll's <a href="https://speakerdeck.com/anguscroll/parlez-vous-javascript">Parlez-Vous Javascript</a></em></p>
+</section></section>
+<section><section id="functions" class="titleslide slide level1"><h1>Functions</h1></section><section id="first-class-functions" class="slide level2">
+<h1>&quot;First-class&quot; functions:</h1>
+<ul>
+<li>Can be stored in variables</li>
+<li>Can be passed as function arguments</li>
+<li>Can be returned from other functions</li>
+</ul>
+</section><section id="functions-as-variables" class="slide level2">
+<h1>Functions as variables</h1>
+<pre><code>function foo() { }</code></pre>
+<pre><code>var foo = function() { }</code></pre>
+<pre><code>var o = {
+  foo: function() { }
+}</code></pre>
+</section><section id="functions-as-arguments" class="slide level2">
+<h1>Functions as arguments</h1>
+<p>Find the odd values in a:</p>
+<pre><code>var oddValues = [];
+for (var i=0; i &lt; a.length; a++) { if (a[i] &amp; 1) oddValues.push(a[i]) };</code></pre>
+<pre><code>function isOdd(x) { return (x &amp; 1); } 
+var oddValues = a.filter(isOdd);</code></pre>
+<p>See: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array iteration methods</a></p>
+</section><section id="can-be-an-anonymous-function" class="slide level2">
+<h1>Can be an anonymous function</h1>
+<pre><code>var oddValues = a.filter(function (x) { return (x &amp; 1) } );</code></pre>
+</section><section id="naming-anonymous-functions-for-debugging" class="slide level2">
+<h1>Naming anonymous functions for debugging</h1>
+<pre><code>var oddValues = a.filter(function isOdd(x) { return (x &amp; 1) } );</code></pre>
+</section><section id="practice-14" class="slide level2">
+<h1>Practice</h1>
+<ol type="1">
+<li>Create an array of numbers</li>
+<li>Use <code>Array.map</code> to create a new array where all the values are doubled.</li>
+<li>(Extra) Use <code>Array.reduce</code> to add up the numbers.</li>
+</ol>
+<p>See: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array iteration methods</a></p>
+</section></section>
+<section><section id="function-closures" class="titleslide slide level1"><h1>Function closures</h1></section><section id="remember-the-buttons" class="slide level2">
+<h1>Remember the buttons?</h1>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="dt">&lt;!DOCTYPE </span>html<span class="dt">&gt;</span>
+<span class="kw">&lt;meta</span><span class="ot"> doctype=</span><span class="st">utf-8</span><span class="kw">&gt;</span>
+<span class="kw">&lt;title&gt;</span>Clicky!<span class="kw">&lt;/title&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;buttons&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;button</span><span class="ot"> id=</span><span class="st">&quot;a&quot;</span><span class="kw">&gt;</span>a<span class="kw">&lt;/button&gt;</span>
+    <span class="kw">&lt;button</span><span class="ot"> id=</span><span class="st">&quot;b&quot;</span><span class="kw">&gt;</span>b<span class="kw">&lt;/button&gt;</span>
+    <span class="kw">&lt;button</span><span class="ot"> id=</span><span class="st">&quot;c&quot;</span><span class="kw">&gt;</span>c<span class="kw">&lt;/button&gt;</span>
+    <span class="kw">&lt;button</span><span class="ot"> id=</span><span class="st">&quot;d&quot;</span><span class="kw">&gt;</span>d<span class="kw">&lt;/button&gt;</span>
+  <span class="kw">&lt;/div&gt;</span>
+<span class="kw">&lt;script&gt;</span>
+  <span class="kw">var</span> div = <span class="ot">document</span>.<span class="fu">querySelector</span>(<span class="st">&#39;#buttons&#39;</span>);
+  <span class="ot">div</span>.<span class="fu">onclick</span> = <span class="kw">function</span>() { <span class="fu">alert</span>(<span class="st">&#39;Hello!&#39;</span>) };
+&lt;<span class="ot">/script&gt;</span></code></pre>
+<p>Let's count the clicks.</p>
+</section><section class="slide level2">
+
+<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> counters = {<span class="dt">a</span>: <span class="dv">0</span>, <span class="dt">b</span>: <span class="dv">0</span>, <span class="dt">c</span>: <span class="dv">0</span>, <span class="dt">d</span>: <span class="dv">0</span>};
+
+<span class="kw">function</span> <span class="fu">clickHandler</span>(event) {
+    <span class="kw">var</span> id = <span class="ot">event</span>.<span class="ot">target</span>.<span class="fu">id</span>;
+    <span class="kw">var</span> count = counters[id];
+    count = count + <span class="dv">1</span>;
+    counters[id] = count;
+    <span class="ot">event</span>.<span class="ot">target</span>.<span class="fu">innerHTML</span> = id + <span class="st">&quot; (&quot;</span> + count + <span class="st">&quot;)&quot;</span>;
+}
+
+<span class="ot">div</span>.<span class="fu">onclick</span> = clickHandler;</code></pre>
+<aside class="notes">
+    
+Yes, I'm being verbose. It's a beginners class and I don't want to melt someone's brain by being too terse. Besides, I need to save those brain cells for what's next...
+</aside>
+
+</section><section class="slide level2">
+
+<p>Can you do it without the global?</p>
+</section><section id="make-a-new-event-handler-for-each" class="slide level2">
+<h1>Make a new event handler for each</h1>
+<pre><code>function attachClickHandler(button) {
+    var id = button.id;
+    var count = 0;
+    button.onclick = function(event) {
+        count = count + 1; // or count += 1, or count++
+        button.innerHTML = id + &quot; (&quot; + count + &quot;)&quot;;
+    }
+}
+
+document.querySelectorAll(&#39;button&#39;).forEach(attachClickHandler);</code></pre>
+<aside class="notes">
+    
+This is where C programmers and the like break down and cry. <code>button</code>, <code>id</code>, and <code>count</code> are allocated as regular objects (not on the stack) and the new anonymous function has a reference to them. Even though the parent function goes out of scope, the inner function still has a reference that keeps those values alive. We say the inner function <em>&quot;closes around&quot;</em> the variables.
+</aside>
+
+</section><section id="another-closure-example" class="slide level2">
+<h1>Another closure example</h1>
+<pre><code>function makeCounter() {
+    var x = 0;
+    return function () {
+      return ++x;
+    }
+}
+
+var count = makeCounter();
+count(); // 1
+count(); // 2</code></pre>
+<aside class="notes">
+    
+Question for the class: how would you set an initial value?
+</aside>
+
+</section><section id="practice-15" class="slide level2">
+<h1>Practice</h1>
+<ol type="1">
+<li>Write the <code>makeCounter</code> example, but pass in an initial value.</li>
+<li>(Extra) Implement the counting buttons. Can you show the counts elsewhere on the page (e.g. in a <code>&lt;span&gt;</code>)?</li>
+</ol>
+</section></section>
+<section><section id="dynamic-this" class="titleslide slide level1"><h1>Dynamic <code>this</code></h1></section><section id="another-counter-example" class="slide level2">
+<h1>Another counter example</h1>
+<pre><code>var counter = {
+    count: 0,
+    handleClick: function(event) { 
+        this.count += 1; 
+        event.target.innerHTML = event.target.id + &quot; (&quot; + this.count + &quot;)&quot;;
+    } 
+}
+
+button.onclick = counter.handleClick;</code></pre>
+<aside class="notes">
+    
+This looks like it should work, but doesn't...
+</aside>
+
+</section><section id="this-is-not-the-object-you-are-looking-for" class="slide level2">
+<h1><code>this</code> is not the object you are looking for</h1>
+<ul>
+<li>In an event handler, <code>this</code> = <code>event.target</code></li>
+</ul>
+</section><section id="what-happens" class="slide level2">
+<h1>What happens</h1>
+<pre><code>var counter = {
+    count: 0,
+    handleClick: function(event) { 
+        console.log(this);
+        this.count += 1; 
+        event.target.innerHTML = event.target.id + &quot; (&quot; + this.count + &quot;)&quot;;
+    } 
+}</code></pre>
+<ul>
+<li>Console: <code>this = [object HTMLButtonElement]</code></li>
+<li><code>this.count</code> === <code>undefined</code></li>
+<li><code>this.count += 1</code> === <code>NaN</code></li>
+</ul>
+</section><section id="some-things-become-easier" class="slide level2">
+<h1>Some things become easier</h1>
+<pre><code>var count = 0;
+button.onclick = function(event) { 
+    count++; 
+    this.innerHTML = this.id + &quot; (&quot; + count + &quot;)&quot;;
+};</code></pre>
+</section><section id="binding-this" class="slide level2">
+<h1>Binding <code>this</code></h1>
+<pre><code>var counter = {
+    count: 0,
+    handleClick: function(event) { 
+        this.count += 1; 
+        event.target.innerHTML = id + &quot; (&quot; + this.count + &quot;)&quot;;
+    } 
+}
+
+button.onclick = function (event) { 
+    counter.handleClick(event);
+}
+</code></pre>
+<aside class="notes">
+    
+Now button.onclick gets a function that always sets <code>this</code> to <code>counter</code> before calling <code>counter.handleClick</code>.
+</aside>
+
+</section><section class="slide level2">
+
+<p>Using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind">bind()</a></p>
+<pre><code>var counter = {
+    count: 0,
+    handleClick: function(event) { 
+        this.count += 1; 
+        event.target.innerHTML = id + &quot; (&quot; + this.count + &quot;)&quot;;
+    } 
+}
+
+button.onclick = counter.handleClick.bind(counter);</code></pre>
+</section><section id="wrapping-this-up" class="slide level2">
+<h1>Wrapping this up</h1>
+<pre><code>function attachClickHandler(button) {
+    var counter = {
+        count: 0,
+        handleClick: function(event) { 
+            this.count += 1; 
+            event.target.innerHTML = id + &quot; (&quot; + this.count + &quot;)&quot;;
+        } 
+    button.onclick = counter.handleClick.bind(counter);
+}
+
+var buttons = document.querySelectorAll(&#39;button&#39;);
+for (var i=0; i &lt; buttons.length; i++) 
+  attachClickHandler(buttons[i]);</code></pre>
+</section><section id="practice-16" class="slide level2">
+<h1>Practice</h1>
+<ol type="1">
+<li>Step through the final example in the debugger.</li>
+<li>Explain it to someone else. (Do you both agree?)</li>
+</ol>
+</section></section>
+<section><section id="take-a-break" class="titleslide slide level1"><h1>Take a break!</h1></section></section>
+<section><section id="alternate-ways-to-create-classes" class="titleslide slide level1"><h1>Alternate ways to create classes</h1></section><section id="do-we-need-full-classes" class="slide level2">
+<h1>Do we need full classes?</h1>
+<pre><code>function Person(name, location) {
+    this.name = name;
+    this.location = location;
+}
+
+Person.prototype.introduce = function() {
+    console.log(&quot;I am &quot; + this.name);
+}
+
+function Wizard(name, location, orientation) {
+    Person.call(this, name, location);
+    this.orientation = orientation;
+}
+
+Wizard.prototype = new Person();
+
+Wizard.prototype.isGood = function() { 
+  return this.orientation == &quot;good&quot;;
+}</code></pre>
+</section><section id="maybe-just-an-object..." class="slide level2">
+<h1>Maybe just an object...</h1>
+<pre><code>var bilbo = {
+    name: &quot;Bilbo Baggins&quot;,
+    location: &quot;The Shire&quot;,
+    introduce: function() { console.log(&quot;I am &quot; + this.name) }
+}</code></pre>
+</section><section id="we-could-even-make-a-factory" class="slide level2">
+<h1>We could even make a factory</h1>
+<pre><code>function makePerson(name, location) {
+    return {
+        name: (name),
+        location: (location),
+        introduce: function() { console.log(&quot;I am &quot; + this.name) }
+    }
+}
+
+var bilbo = makePerson(&quot;Bilbo Baggins&quot;, &quot;The Shire&quot;);</code></pre>
+</section><section id="prevent-the-name-from-changing" class="slide level2">
+<h1>Prevent the name from changing</h1>
+<pre><code>function makePerson(name, location) {
+    return {
+        name: get() { return name },
+        location: get() { return location },
+        introduce: function() { console.log(&quot;I am &quot; + this.name) }
+    }
+}
+
+var bilbo = makePerson(&quot;Bilbo Baggins&quot;, &quot;The Shire&quot;);
+bilbo.name = &quot;Smaug&quot; // &lt;-- ERROR!</code></pre>
+</section><section id="extending-the-object" class="slide level2">
+<h1>Extending the object</h1>
+<pre><code>function makeWizard(name, location, orientation) {
+    var me = makePerson(name, location);
+    me.orientation = get() { return orientation };
+    me.isGood = function() { 
+        return this.orientation == &quot;good&quot; 
+    }
+    return me;
+}</code></pre>
+</section><section id="make-an-object-with-private-variables" class="slide level2">
+<h1>Make an object with private variables</h1>
+<p>&quot;The []Module Pattern]()&quot;</p>
+<pre><code>function makeCounter() {
+    return (function() {
+        var _count = 0;
+        return {
+            count: function() { return ++count },
+            reset: function() { _count = 0 }
+        }
+    })();
+}
+
+var counter = makeCounter();
+counter.count(); // 1
+counter.count(); // 2
+counter.reset();
+counter.count(); // 1
+</code></pre>
+</section><section id="i-i-f-e" class="slide level2">
+<h1>I-I-F-E</h1>
+<pre><code>(function() { ... })()</code></pre>
+<p>&quot;Immediately Invoked Function Expression&quot;</p>
+</section><section id="extend-the-counter" class="slide level2">
+<h1>Extend the counter</h1>
+<pre><code>function addCallCounter(counter) {
+    return (function () {
+        var _calls = 0;
+        counter.totalCalls = function () { return ++_calls };
+        return counter;
+    })();
+}
+
+var counter = makeCounter();
+addCallCounter(counter);
+counter.count(); // 1
+counter.totalCalls(); // 1
+counter.reset();
+counter.count(); // 1
+counter.totalCalls(); // 2</code></pre>
+</section><section id="iife-uses" class="slide level2">
+<h1>IIFE uses</h1>
+<h3 id="you-will-see-this-pattern.-often.">You <strong>will</strong> see this pattern. Often.</h3>
+<ul>
+<li>Creating and extending classes (e.g. Underscore)</li>
+<li>Creating loadable modules (e.g. AMD)</li>
+<li>Creating namespaces</li>
+</ul>
+</section><section id="practice-17" class="slide level2">
+<h1>Practice</h1>
+<ol type="1">
+<li>Create a new empty object (<code>{}</code> or <code>new Object()</code>)</li>
+<li>Create an object with your name and some function (like <code>greeting</code>)</li>
+<li>Wrap the object up in an IIFE and return it.</li>
+<li>Create a private variable in the IIFE and include it in the object.</li>
+<li>(Extra) Write a second function to extend the object.</li>
+</ol>
+</section></section>
+<section><section id="playing-with-data" class="titleslide slide level1"><h1>Playing with data</h1></section><section id="put-some-data-in-an-object" class="slide level2">
+<h1>Put some data in an object</h1>
+<pre><code>var data = { 
+  values: [2, 3, 4, 5];
+}</code></pre>
+</section><section id="json" class="slide level2">
+<h1>JSON</h1>
+<p><a href="http://json.org">JSON specification</a></p>
+<pre><code>var json_data = &#39;{&quot;values&quot;: [2, 3, 4, 5]}&#39;;
+var data = JSON.parse(json_data);
+console.log(JSON.stringify(data));</code></pre>
+<aside class="notes">
+JSON (Javascript Object Notation) is just a Javascript data object (no functions) with three simple rules: 1. All keys must be quoted with double quotes. 2. All string values must be quoted with double quotes. 3. The whole thing is a string.
+</aside>
+
+</section><section id="older-browser" class="slide level2">
+<h1>Older Browser?</h1>
+<p><a href="https://github.com/douglascrockford/JSON-js">https://github.com/douglascrockford/JSON-js</a></p>
+</section><section id="practice-18" class="slide level2">
+<h1>Practice</h1>
+<h3 id="using-the-browser-console.">Using the browser console.</h3>
+<ol type="1">
+<li>Define an array in Javascript. Encode it into JSON.</li>
+<li>Define an object in Javascript. Encode it into JSON.</li>
+<li>Create a JSON string. Decode it.</li>
+</ol>
+</section></section>
+<section><section id="graphs-and-charts" class="titleslide slide level1"><h1>Graphs and charts</h1></section><section id="introducing-d3.js" class="slide level2">
+<h1>Introducing D3.js</h1>
+<p><a href="http://d3js.org">D3.js Homepage</a></p>
+</section><section id="hello-world-using-d3" class="slide level2">
+<h1>Hello, World using D3</h1>
+<p><a href="http://bost.ocks.org/mike/bar/">Tutorial</a></p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;meta doctype=utf-8&gt;
+&lt;title&gt;Hello!&lt;/title&gt;
+&lt;script src=&quot;http://d3js.org/d3.v3.min.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+&lt;body&gt;
+  &lt;script&gt;
+    var body = d3.select(&quot;body&quot;);
+    var h1 = body.append(&quot;h1&quot;);
+    h1.html(&quot;Hello, world!&quot;);
+  &lt;/script&gt;
+&lt;/body&gt;</code></pre>
+</section><section id="multiple-sections" class="slide level2">
+<h1>Multiple sections</h1>
+<p><a href="http://bost.ocks.org/mike/bar/">Tutorial</a></p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;meta doctype=utf-8&gt;
+&lt;title&gt;Hello!&lt;/title&gt;
+&lt;script src=&quot;http://d3js.org/d3.v3.min.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+&lt;body&gt;
+  &lt;section&gt;&lt;/section&gt;
+  &lt;section&gt;&lt;/section&gt;
+  &lt;script&gt;
+    var sections = d3.selectAll(&quot;section&quot;);
+    var h1 = sections.append(&quot;h1&quot;);
+    h1.html(&quot;Hello, world!&quot;);
+  &lt;/script&gt;
+&lt;/body&gt;</code></pre>
+</section><section id="add-some-style" class="slide level2">
+<h1>Add some style</h1>
+<p><a href="http://bost.ocks.org/mike/bar/">Tutorial</a></p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;meta doctype=utf-8&gt;
+&lt;title&gt;Hello!&lt;/title&gt;
+&lt;script src=&quot;http://d3js.org/d3.v3.min.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+&lt;body&gt;
+  &lt;section&gt;&lt;/section&gt;
+  &lt;section&gt;&lt;/section&gt;
+  &lt;script&gt;
+    var sections = d3.selectAll(&quot;section&quot;);
+    var h1 = sections.append(&quot;h1&quot;).style(&#39;color&#39;, &#39;red&#39;);
+    h1.html(&quot;Hello, world!&quot;);
+  &lt;/script&gt;
+&lt;/body&gt;</code></pre>
+</section><section id="lets-create-a-svg-graph" class="slide level2">
+<h1>Let's create a SVG graph</h1>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="dt">&lt;!DOCTYPE </span>html<span class="dt">&gt;</span>
+<span class="kw">&lt;meta</span><span class="ot"> doctype=</span><span class="st">utf-8</span><span class="kw">&gt;</span>
+<span class="kw">&lt;title&gt;</span>Simple graph (path)<span class="kw">&lt;/title&gt;</span>
+<span class="kw">&lt;style&gt;</span>
+    svg <span class="kw">{</span> <span class="kw">border:</span> <span class="dt">1px</span> <span class="dt">solid</span> lightgrey <span class="kw">}</span>
+    <span class="fl">.line</span> <span class="kw">{</span> <span class="kw">fill:</span> <span class="dt">none</span><span class="kw">;</span> <span class="kw">stroke:</span> steelblue<span class="kw">;</span> <span class="kw">stroke-width:</span> <span class="dt">1.5px</span> <span class="kw">}</span>
+<span class="kw">&lt;/style&gt;</span>
+<span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&quot;http://d3js.org/d3.v3.min.js&quot;</span><span class="ot"> charset=</span><span class="st">&quot;utf-8&quot;</span><span class="kw">&gt;&lt;/script&gt;</span>
+<span class="kw">&lt;body&gt;</span>
+  <span class="kw">&lt;svg</span><span class="ot"> width=</span><span class="st">100</span><span class="ot"> height=</span><span class="st">100</span> <span class="kw">/&gt;</span>
+  <span class="kw">&lt;script&gt;</span>
+    <span class="kw">var</span> points = [[<span class="dv">0</span>, <span class="dv">100</span>], [<span class="dv">25</span>, <span class="dv">50</span>], [<span class="dv">50</span>, <span class="dv">0</span>], [<span class="dv">75</span>, <span class="dv">50</span>], [<span class="dv">100</span>, <span class="dv">100</span>]];
+    <span class="kw">var</span> svg = <span class="ot">d3</span>.<span class="fu">select</span>(<span class="st">&quot;svg&quot;</span>);
+    <span class="kw">var</span> line = <span class="ot">d3</span>.<span class="ot">svg</span>.<span class="fu">line</span>();
+    <span class="kw">var</span> path = <span class="fu">line</span>(points);
+    <span class="ot">svg</span>.<span class="fu">append</span>(<span class="st">&#39;path&#39;</span>).<span class="fu">attr</span>(<span class="st">&#39;class&#39;</span>, <span class="st">&#39;line&#39;</span>).<span class="fu">attr</span>(<span class="st">&#39;d&#39;</span>, path);
+  &lt;<span class="ot">/script&gt;</span>
+<span class="ot">&lt;/body</span>&gt;</code></pre>
+</section><section id="d3-will-call-line-if-we-supply-the-data" class="slide level2">
+<h1>D3 will call <code>line</code> if we supply the data</h1>
+<pre><code>var points = [[0, 100], [25, 50], [50, 0], [75, 50], [100, 100]];
+var svg = d3.select(&quot;svg&quot;);
+var line = d3.svg.line();
+
+svg.append(&#39;path&#39;)
+    .datum(points)      // remember the points...
+    .attr(&#39;class&#39;, &#39;line&#39;)
+    .attr(&#39;d&#39;, line);   // calls line(points) on our behalf </code></pre>
+</section><section id="scaled-data-accessors" class="slide level2">
+<h1>Scaled data, accessors</h1>
+<pre><code>var points = [0, 0.5, 1, 0.5, 0];
+var svg = d3.select(&quot;svg&quot;);
+var x = d3.scale.linear().domain([0, points.length - 1]).range([0, 100]);
+var y = d3.scale.linear().range([100, 0]);
+var line = d3.svg.line()
+    .x(function (d, i) { return x(i) } )
+    .y(function (d, i) { return y(d) });
+svg.append(&#39;path&#39;).datum(points).attr(&#39;class&#39;, &#39;line&#39;).attr(&#39;d&#39;, line);</code></pre>
+</section><section id="practice-19" class="slide level2">
+<h1>Practice</h1>
+<ol type="1">
+<li>Take one of the examples, have D3 add the <code>svg</code> element dynamically (<code>.append('svg')</code>)</li>
+<li>Set the height and width of that element (see the D3 tutorials)</li>
+<li>(Extra) Can you graph a set of circles instead?</li>
+</ol>
+</section></section>
+<section><section id="wrapping-up" class="titleslide slide level1"><h1>Wrapping up</h1></section><section id="what-we-didnt-talk-about" class="slide level2">
+<h1>What we didn't talk about</h1>
+<ul>
+<li>Downgrading to ES3</li>
+<li>Lesser-used parts of ES5: propery accessors, <code>Object.freeze</code>, <code>Object.seal</code>, etc.</li>
+<li>&quot;Monkey Patching&quot;</li>
+<li>ES6 &quot;Harmony&quot;</li>
+</ul>
+</section><section id="what-you-know-now" class="slide level2">
+<h1>What you know now</h1>
+<ul>
+<li>Variables, functions, control structures, data types</li>
+<li>Working with objects and <code>this</code></li>
+<li>Working with classes: both via <code>.prototype</code> and make-your-own</li>
+<li>Building interactions (with and without jQuery)</li>
+<li>Building visualizations with D3.js</li>
+<li>Testing your code across multiple browsers</li>
+</ul>
+</section><section id="resources-for-your-journey" class="slide level2">
+<h1>Resources for your journey</h1>
+<ul>
+<li><a href="http://www.eloquentjavascript.net">Eloquent Javascript</a></li>
+<li><a href="http://dailyjs.com">Daily JS</a></li>
+<li><a href="http://javascriptweblog.wordpress.com">JavaScript, JavaScript</a></li>
+<li><a href="http://www.yuiblog.com/blog">YUI Blog</a></li>
+<li>Javascript Garden</li>
+<li><a href="http://JSLint.com">JSLint.com</a></li>
+</ul>
+</section><section class="slide level2">
+
+</section></section>
+<section><section id="thank-you" class="titleslide slide level1"><h1>Thank you!</h1></section></section>
+    </div>
+  </div>
+
+
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.min.js"></script>
+
+  <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        theme: 'sky', // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+//          { src: 'reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; }, }
+//          { src: 'reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+]});
+    </script>
+    </body>
+</html>

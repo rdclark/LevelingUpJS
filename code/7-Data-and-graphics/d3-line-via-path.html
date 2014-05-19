@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<meta doctype=utf-8>
+<title>Simple graph (path)</title>
+<style>
+	svg { border: 1px solid lightgrey }
+	.line { fill: none; stroke: steelblue; stroke-width: 1.5px }
+</style>
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<body>
+  <svg width=100 height=100 />
+  <script>
+    var points = [[0, 100], [25, 50], [50, 0], [75, 50], [100, 100]];
+	var svg = d3.select("svg");
+	var line = d3.svg.line();
+	var path = line(points);
+	svg.append('path').attr('class', 'line').attr('d', path);
+  </script>
+</body>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<meta doctype=utf-8>
+<title>Form practice</title>
+<form>
+	<input type="text" placeholder="What is your name?">
+</form>
+<p>Welcome, <span id="name">stranger</span>
+<script>
+window.onload = function() {
+  var form = document.forms[0];
+  var input = form.elements[0];
+  form.onsubmit = function(event) { 
+  	// Write this. 
+  	// 1. Get the text from the input
+  	// 2. Find the span and change its innerHTML
+  	// 3. Optional: Reset the input to empty
+  }
+}
+</script>

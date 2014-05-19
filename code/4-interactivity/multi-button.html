@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<meta doctype=utf-8>
+<title>Buttons!</title>
+<button id="a">Click me!</button>
+<button id="b">Click me!</button>
+<button id="c">Click me!</button>
+<button id="d">Click me!</button>
+<script>
+  var buttons = document.querySelectorAll('button');
+  for (var i=0; i < buttons.length; i++) {
+    buttons[i].onclick = function() { alert('Hello!') };
+  }
+</script>
