@@ -23,7 +23,7 @@
 
 ```html
 <!DOCTYPE html>
-<meta doctype=utf-8>
+<meta charset=utf-8>
 <title>Javascript practice</title>
 <h1>Just a practice page</h1>
 <script>
