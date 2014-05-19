@@ -1359,7 +1359,10 @@ function attachClickHandler(button) {
     }
 }
 
-document.querySelectorAll('button').forEach(attachClickHandler);
+var buttons = document.querySelectorAll('button')
+for (var i = 0; i < buttons.length; i++) {
+    attachClickHandler(buttons[i]);
+}
 ```
 
 <aside class="notes">
