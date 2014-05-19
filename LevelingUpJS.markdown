@@ -23,7 +23,7 @@
 
 ```html
 <!DOCTYPE html>
-<meta doctype=utf-8>
+<meta charset=utf-8>
 <title>Javascript practice</title>
 <h1>Just a practice page</h1>
 <script>
@@ -652,7 +652,7 @@ a.pop(); // returns 'e', now ['a', 'b', 'c', 'd']
 
 ```html
 <!DOCTYPE html>
-<meta doctype=utf-8>
+<meta charset=utf-8>
 <title>Javascript practice</title>
 <h1>Just a practice page</h1>
 <script>
@@ -708,7 +708,7 @@ h1.innerHTML = "Look at me!";
 
 ```html
 <!DOCTYPE html>
-<meta doctype=utf-8>
+<meta charset=utf-8>
 <title>Javascript practice</title>
 <style>h1 { -webkit-transition : color 5s }
 <h1>Just a practice page</h1>
@@ -740,7 +740,7 @@ setInterval(changeColor, 5000);
 
 ```html
 <!DOCTYPE html>
-<meta doctype=utf-8>
+<meta charset=utf-8>
 <title>Interactive</title>
 <button id="b" onclick="alert('Hello!')">Click me!</button>
 ```
@@ -757,7 +757,7 @@ setInterval(changeColor, 5000);
 
 ```html
 <!DOCTYPE html>
-<meta doctype=utf-8>
+<meta charset=utf-8>
 <title>Interactive</title>
 <button id="b">Click me!</button>
 <script>
@@ -771,7 +771,7 @@ setInterval(changeColor, 5000);
 
 ```html
 <!DOCTYPE html>
-<meta doctype=utf-8>
+<meta charset=utf-8>
 <title>Buttons!</title>
 <button id="a">Click me!</button>
 <button id="b">Click me!</button>
@@ -806,7 +806,7 @@ An **[Event](https://developer.mozilla.org/en-US/docs/Web/API/Event)** has prope
 
 ```html
 <!DOCTYPE html>
-<meta doctype=utf-8>
+<meta charset=utf-8>
 <title>Which button?</title>
 <button id="a">A</button>
 <button id="b">B</button>
@@ -826,7 +826,7 @@ An **[Event](https://developer.mozilla.org/en-US/docs/Web/API/Event)** has prope
 
 ```html
 <!DOCTYPE html>
-<meta doctype=utf-8>
+<meta charset=utf-8>
 <title>Which button?</title>
 <div id="buttons">
 	<button id="a">A</button>
@@ -899,7 +899,7 @@ window.onload = function() {
 
 ```html
 <!DOCTYPE html>
-<meta doctype=utf-8>
+<meta charset=utf-8>
 <title>Multiple Images (1)</title>
 <div id="images">
 	<img src="button1.png">
@@ -927,7 +927,7 @@ window.onload = function() {
 
 ```html
 <!DOCTYPE html>
-<meta doctype=utf-8>
+<meta charset=utf-8>
 <title>Greetings</title>
 <form>
 	<label for="name">What is your name?</label>
@@ -985,7 +985,7 @@ form.onsubmit = function(event) {
 
 ```
 <!DOCTYPE html>
-<meta doctype=utf-8>
+<meta charset=utf-8>
 <title>Form practice</title>
 <form>
 	<input type="text" placeholder="What is your name?">
@@ -1031,7 +1031,7 @@ window.onload = function() {
 
 ```html
 <!DOCTYPE html>
-<meta doctype=utf-8>
+<meta charset=utf-8>
 <title>jQuery Animations</title>
 <script src="lib/jquery-2.1.1.js"></script>
 <h1>Hello!</h1>
@@ -1064,7 +1064,7 @@ $('<button>Fade out</button>')
 
 ```html
 <!DOCTYPE html>
-<meta doctype=utf-8>
+<meta charset=utf-8>
 <title>jQuery Form</title>
 <script src="lib/jquery-2.1.1.js"></script>
 <form>
@@ -1088,6 +1088,7 @@ $(document).ready(function() {
 ## Practice
 
 Using the form example:
+
 1. Hide the paragraph when the page first loads.
 2. On submit, animate it into view.
 3. (Extra) Hide the paragraph if the entered text is empty. (Hint: `if ('')` is the same as `if (false)` )
@@ -1306,7 +1307,7 @@ See: [Array iteration methods](https://developer.mozilla.org/en-US/docs/Web/Java
 
 ```html
 <!DOCTYPE html>
-<meta doctype=utf-8>
+<meta charset=utf-8>
 <title>Clicky!</title>
   <div id="buttons">
 	<button id="a">a</button>
@@ -1700,7 +1701,7 @@ JSON (Javascript Object Notation) is just a Javascript data object (no functions
 
 ```
 <!DOCTYPE html>
-<meta doctype=utf-8>
+<meta charset=utf-8>
 <title>Hello!</title>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <body>
@@ -1718,7 +1719,7 @@ JSON (Javascript Object Notation) is just a Javascript data object (no functions
 
 ```
 <!DOCTYPE html>
-<meta doctype=utf-8>
+<meta charset=utf-8>
 <title>Hello!</title>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <body>
@@ -1738,7 +1739,7 @@ JSON (Javascript Object Notation) is just a Javascript data object (no functions
 
 ```
 <!DOCTYPE html>
-<meta doctype=utf-8>
+<meta charset=utf-8>
 <title>Hello!</title>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <body>
@@ -1756,7 +1757,7 @@ JSON (Javascript Object Notation) is just a Javascript data object (no functions
 
 ```html
 <!DOCTYPE html>
-<meta doctype=utf-8>
+<meta charset=utf-8>
 <title>Simple graph (path)</title>
 <style>
 	svg { border: 1px solid lightgrey }
