@@ -1166,12 +1166,12 @@ Not all browsers <s>speak the same language</s> have the same APIs
     equal(average(2, 4), 3, "Even numbers");
     equal(average(1, 2), 1.5, "Adjacent numbers");
   });
- ```
+```
 
- ## Testing HTML
+## Testing HTML
 
- ```
- <!DOCTYPE html>
+```
+<!DOCTYPE html>
 <meta charset="utf-8">
 <title>Table Example</title>
 <link rel="stylesheet" href="http://code.jquery.com/qunit/qunit-1.14.0.css">
