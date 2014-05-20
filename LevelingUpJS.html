@@ -31,19 +31,10 @@ code > span.fu { color: #06287e; }
 code > span.er { color: #ff0000; font-weight: bold; }
     </style>
     <link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
-    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
-    <script>
-      if( window.location.search.match( /print-pdf/gi ) ) {
-        var link = document.createElement( 'link' );
-        link.rel = 'stylesheet';
-        link.type = 'text/css';
-        link.href = 'reveal.js/css/print/pdf.css';
-        document.getElementsByTagName( 'head' )[0].appendChild( link );
-      }
-    </script>
-    <!--[if lt IE 9]>
-    <script src="reveal.js/lib/js/html5shiv.js"></script>
-    <![endif]-->
+  <link rel="stylesheet" media="print" href="reveal.js/css/print/pdf.css" />
+  <!--[if lt IE 9]>
+  <script src="reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
 </head>
 <body>
   <div class="reveal">
@@ -610,9 +601,9 @@ setInterval(changeColor, 5000);</code></pre>
 <span class="kw">&lt;title&gt;</span>Interactive<span class="kw">&lt;/title&gt;</span>
 <span class="kw">&lt;button</span><span class="ot"> id=</span><span class="st">&quot;b&quot;</span><span class="kw">&gt;</span>Click me!<span class="kw">&lt;/button&gt;</span>
 <span class="kw">&lt;script&gt;</span>
-  <span class="kw">var</span> b = <span class="ot">document</span>.<span class="fu">querySelector</span>(<span class="st">&#39;#b&#39;</span>);
+<span class="er">  var b = document.querySelector(&#39;#b&#39;);</span>
   <span class="ot">b</span>.<span class="fu">onclick</span> = <span class="kw">function</span>() { <span class="fu">alert</span>(<span class="st">&#39;Hello!&#39;</span>) };
-&lt;<span class="ot">/script&gt;</span></code></pre>
+<span class="kw">&lt;/script&gt;</span></code></pre>
 <ul>
 <li class="fragment">Move script out of the button tag</li>
 </ul>
@@ -626,11 +617,11 @@ setInterval(changeColor, 5000);</code></pre>
 <span class="kw">&lt;button</span><span class="ot"> id=</span><span class="st">&quot;c&quot;</span><span class="kw">&gt;</span>Click me!<span class="kw">&lt;/button&gt;</span>
 <span class="kw">&lt;button</span><span class="ot"> id=</span><span class="st">&quot;d&quot;</span><span class="kw">&gt;</span>Click me!<span class="kw">&lt;/button&gt;</span>
 <span class="kw">&lt;script&gt;</span>
-  <span class="kw">var</span> buttons = <span class="ot">document</span>.<span class="fu">querySelectorAll</span>(<span class="st">&#39;button&#39;</span>);
+<span class="er">  var buttons = document.querySelectorAll(&#39;button&#39;);</span>
   <span class="kw">for</span> (<span class="kw">var</span> i=<span class="dv">0</span>; i &lt; <span class="ot">buttons</span>.<span class="fu">length</span>; i++) {
     buttons[i].<span class="fu">onclick</span> = <span class="kw">function</span>() { <span class="fu">alert</span>(<span class="st">&#39;Hello!&#39;</span>) };
   }
-&lt;<span class="ot">/script&gt;</span></code></pre>
+<span class="kw">&lt;/script&gt;</span></code></pre>
 </section><section id="events" class="slide level2">
 <h1>Events</h1>
 <p>An <strong><a href="https://developer.mozilla.org/en-US/docs/Web/API/Event">Event</a></strong> is:</p>
@@ -658,13 +649,13 @@ setInterval(changeColor, 5000);</code></pre>
 <span class="kw">&lt;button</span><span class="ot"> id=</span><span class="st">&quot;c&quot;</span><span class="kw">&gt;</span>C<span class="kw">&lt;/button&gt;</span>
 <span class="kw">&lt;button</span><span class="ot"> id=</span><span class="st">&quot;d&quot;</span><span class="kw">&gt;</span>D<span class="kw">&lt;/button&gt;</span>
 <span class="kw">&lt;script&gt;</span>
-  <span class="kw">var</span> buttons = <span class="ot">document</span>.<span class="fu">querySelectorAll</span>(<span class="st">&#39;button&#39;</span>);
+<span class="er">  var buttons = document.querySelectorAll(&#39;button&#39;);</span>
   <span class="kw">for</span> (<span class="kw">var</span> i=<span class="dv">0</span>; i &lt; <span class="ot">buttons</span>.<span class="fu">length</span>; i++) {
     buttons[i].<span class="fu">onclick</span> = <span class="kw">function</span>(event) { 
         <span class="fu">alert</span>(<span class="st">&quot;Clicked &quot;</span> + <span class="ot">event</span>.<span class="ot">target</span>.<span class="fu">id</span>) 
     };
   }
-&lt;<span class="ot">/script&gt;</span></code></pre>
+<span class="kw">&lt;/script&gt;</span></code></pre>
 </section><section id="lose-the-loop" class="slide level2">
 <h1>Lose the loop</h1>
 <pre class="sourceCode html"><code class="sourceCode html"><span class="dt">&lt;!DOCTYPE </span>html<span class="dt">&gt;</span>
@@ -677,11 +668,11 @@ setInterval(changeColor, 5000);</code></pre>
     <span class="kw">&lt;button</span><span class="ot"> id=</span><span class="st">&quot;d&quot;</span><span class="kw">&gt;</span>D<span class="kw">&lt;/button&gt;</span>
 <span class="kw">&lt;/div&gt;</span>
 <span class="kw">&lt;script&gt;</span>
-  <span class="kw">var</span> buttons = <span class="ot">document</span>.<span class="fu">querySelector</span>(<span class="st">&#39;#buttons&#39;</span>);
+<span class="er">  var buttons = document.querySelector(&#39;#buttons&#39;);</span>
   <span class="ot">buttons</span>.<span class="fu">onclick</span> = <span class="kw">function</span>(event) { 
     <span class="fu">alert</span>(<span class="st">&quot;Clicked &quot;</span> + <span class="ot">event</span>.<span class="ot">target</span>.<span class="fu">id</span>) 
   }
-&lt;<span class="ot">/script&gt;</span></code></pre>
+<span class="kw">&lt;/script&gt;</span></code></pre>
 </section><section id="event-bubbling" class="slide level2">
 <h1>Event bubbling</h1>
 <ul>
@@ -706,14 +697,14 @@ setInterval(changeColor, 5000);</code></pre>
 <span class="kw">&lt;head&gt;</span>
   <span class="kw">&lt;title&gt;</span>Button<span class="kw">&lt;/title&gt;</span>
   <span class="kw">&lt;script&gt;</span>
-    <span class="kw">var</span> b = <span class="ot">document</span>.<span class="fu">getElementById</span>(<span class="st">&#39;b&#39;</span>);
+<span class="er">    var b = document.getElementById(&#39;b&#39;);</span>
     <span class="ot">b</span>.<span class="fu">onclick</span> = <span class="kw">function</span>() { <span class="fu">alert</span>(<span class="st">&#39;Hello!&#39;</span>) };
-  &lt;<span class="ot">/script&gt;</span>
-<span class="ot">&lt;/head</span>&gt;
-&lt;body&gt;
-  &lt;button id=<span class="st">&quot;b&quot;</span>&gt;Click me!&lt;<span class="ot">/button&gt;</span>
-<span class="ot">&lt;/body</span>&gt;
-&lt;<span class="ot">/html&gt;</span></code></pre>
+  <span class="kw">&lt;/script&gt;</span>
+<span class="kw">&lt;/head&gt;</span>
+<span class="kw">&lt;body&gt;</span>
+  <span class="kw">&lt;button</span><span class="ot"> id=</span><span class="st">&quot;b&quot;</span><span class="kw">&gt;</span>Click me!<span class="kw">&lt;/button&gt;</span>
+<span class="kw">&lt;/body&gt;</span>
+<span class="kw">&lt;/html&gt;</span></code></pre>
 <aside class="notes">
     
 Old-school: scripts in the head of the page. The problem is, the button won't exist when that script runs (before the body of the page.)
@@ -747,7 +738,7 @@ Old-school: scripts in the head of the page. The problem is, the button won't ex
   <span class="kw">var</span> images = <span class="ot">document</span>.<span class="fu">querySelector</span>(<span class="st">&#39;#images&#39;</span>);
   <span class="ot">images</span>.<span class="fu">onclick</span> = <span class="kw">function</span>() { <span class="fu">alert</span>(<span class="st">&#39;Hello!&#39;</span>) };
 }
-&lt;<span class="ot">/script&gt;</span></code></pre>
+<span class="kw">&lt;/script&gt;</span></code></pre>
 </section><section id="practice-10" class="slide level2">
 <h1>Practice</h1>
 <ol type="1">
@@ -773,7 +764,7 @@ Old-school: scripts in the head of the page. The problem is, the button won't ex
     <span class="fu">alert</span>(<span class="st">&#39;Hello, &#39;</span> + <span class="ot">input</span>.<span class="fu">value</span>);
   }
 }
-&lt;<span class="ot">/script&gt;</span></code></pre>
+<span class="kw">&lt;/script&gt;</span></code></pre>
 </section><section id="a-mystery" class="slide level2">
 <h1>A mystery</h1>
 <ol type="1">
@@ -850,14 +841,14 @@ window.onload = function() {
 <span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&quot;lib/jquery-2.1.1.js&quot;</span><span class="kw">&gt;&lt;/script&gt;</span>
 <span class="kw">&lt;h1&gt;</span>Hello!<span class="kw">&lt;/h1&gt;</span>
 <span class="kw">&lt;script&gt;</span>
-<span class="fu">$</span>(document).<span class="fu">ready</span>(<span class="kw">function</span>() {
-  <span class="kw">var</span> h1 = <span class="fu">$</span>(<span class="st">&#39;h1&#39;</span>);
+<span class="er">$(document).ready(function() {</span>
+<span class="er">  var h1 = $(&#39;h1&#39;);</span>
 
-  <span class="kw">var</span> b1 = <span class="fu">$</span>(<span class="st">&#39;&lt;button&gt;Fade in&lt;/button&gt;&#39;</span>);
-  <span class="ot">b1</span>.<span class="fu">insertAfter</span>(h1);
-  <span class="ot">b1</span>.<span class="fu">click</span>(<span class="kw">function</span>() { <span class="ot">h1</span>.<span class="fu">fadeIn</span>() });
+<span class="er">  var b1 = $(&#39;&lt;button&gt;Fade in&lt;/button&gt;&#39;);</span>
+<span class="er">  b1.insertAfter(h1);</span>
+<span class="er">  b1.click(function() { h1.fadeIn() });</span>
 });
-&lt;<span class="ot">/script&gt;</span></code></pre>
+<span class="kw">&lt;/script&gt;</span></code></pre>
 </section><section id="method-chaining" class="slide level2">
 <h1>Method chaining</h1>
 <pre><code>var b1 = $(&#39;&lt;button&gt;Fade in&lt;/button&gt;&#39;);
@@ -878,15 +869,15 @@ b1.click(function() { h1.fadeIn() });</code></pre>
 <span class="kw">&lt;/form&gt;</span>
 <span class="kw">&lt;p&gt;</span>Welcome, <span class="kw">&lt;span</span><span class="ot"> id=</span><span class="st">&quot;name&quot;</span><span class="kw">&gt;</span>stranger<span class="kw">&lt;/span&gt;</span>
 <span class="kw">&lt;script&gt;</span>
-<span class="fu">$</span>(document).<span class="fu">ready</span>(<span class="kw">function</span>() {
-  <span class="kw">var</span> form = <span class="fu">$</span>(<span class="ot">document</span>.<span class="fu">forms</span>[<span class="dv">0</span>]); <span class="co">// or $(&#39;form&#39;)</span>
-  <span class="kw">var</span> input = <span class="fu">$</span>(<span class="st">&#39;input&#39;</span>);
-  <span class="ot">form</span>.<span class="fu">submit</span>(<span class="kw">function</span>(event) { 
-    <span class="fu">$</span>(<span class="st">&#39;#name&#39;</span>).<span class="fu">html</span>(<span class="ot">input</span>.<span class="fu">val</span>());
-    <span class="ot">input</span>.<span class="fu">val</span>(<span class="st">&#39;&#39;</span>);
-    <span class="ot">event</span>.<span class="fu">preventDefault</span>();
+<span class="er">$(document).ready(function() {</span>
+<span class="er">  var form = $(document.forms[0]); // or $(&#39;form&#39;)</span>
+<span class="er">  var input = $(&#39;input&#39;);</span>
+<span class="er">  form.submit(function(event) { </span>
+<span class="er">    $(&#39;#name&#39;).html(input.val());</span>
+<span class="er">    input.val(&#39;&#39;);</span>
+<span class="er">    event.preventDefault();</span>
   })
-});
+<span class="er">});</span>
 &lt;<span class="ot">/script&gt;</span></code></pre>
 </section><section id="practice-12" class="slide level2">
 <h1>Practice</h1>
@@ -1075,9 +1066,9 @@ var oddValues = a.filter(isOdd);</code></pre>
     <span class="kw">&lt;button</span><span class="ot"> id=</span><span class="st">&quot;d&quot;</span><span class="kw">&gt;</span>d<span class="kw">&lt;/button&gt;</span>
   <span class="kw">&lt;/div&gt;</span>
 <span class="kw">&lt;script&gt;</span>
-  <span class="kw">var</span> div = <span class="ot">document</span>.<span class="fu">querySelector</span>(<span class="st">&#39;#buttons&#39;</span>);
+<span class="er">  var div = document.querySelector(&#39;#buttons&#39;);</span>
   <span class="ot">div</span>.<span class="fu">onclick</span> = <span class="kw">function</span>() { <span class="fu">alert</span>(<span class="st">&#39;Hello!&#39;</span>) };
-&lt;<span class="ot">/script&gt;</span></code></pre>
+<span class="kw">&lt;/script&gt;</span></code></pre>
 <p>Let's count the clicks.</p>
 </section><section class="slide level2">
 
@@ -1111,7 +1102,10 @@ Yes, I'm being verbose. It's a beginners class and I don't want to melt someone'
     }
 }
 
-document.querySelectorAll(&#39;button&#39;).forEach(attachClickHandler);</code></pre>
+var buttons = document.querySelectorAll(&#39;button&#39;)
+for (var i = 0; i &lt; buttons.length; i++) {
+    attachClickHandler(buttons[i]);
+}</code></pre>
 <aside class="notes">
     
 This is where C programmers and the like break down and cry. <code>button</code>, <code>id</code>, and <code>count</code> are allocated as regular objects (not on the stack) and the new anonymous function has a reference to them. Even though the parent function goes out of scope, the inner function still has a reference that keeps those values alive. We say the inner function <em>&quot;closes around&quot;</em> the variables.
@@ -1447,12 +1441,12 @@ JSON (Javascript Object Notation) is just a Javascript data object (no functions
   <span class="kw">&lt;svg</span><span class="ot"> width=</span><span class="st">100</span><span class="ot"> height=</span><span class="st">100</span> <span class="kw">/&gt;</span>
   <span class="kw">&lt;script&gt;</span>
     <span class="kw">var</span> points = [[<span class="dv">0</span>, <span class="dv">100</span>], [<span class="dv">25</span>, <span class="dv">50</span>], [<span class="dv">50</span>, <span class="dv">0</span>], [<span class="dv">75</span>, <span class="dv">50</span>], [<span class="dv">100</span>, <span class="dv">100</span>]];
-    <span class="kw">var</span> svg = <span class="ot">d3</span>.<span class="fu">select</span>(<span class="st">&quot;svg&quot;</span>);
-    <span class="kw">var</span> line = <span class="ot">d3</span>.<span class="ot">svg</span>.<span class="fu">line</span>();
-    <span class="kw">var</span> path = <span class="fu">line</span>(points);
-    <span class="ot">svg</span>.<span class="fu">append</span>(<span class="st">&#39;path&#39;</span>).<span class="fu">attr</span>(<span class="st">&#39;class&#39;</span>, <span class="st">&#39;line&#39;</span>).<span class="fu">attr</span>(<span class="st">&#39;d&#39;</span>, path);
-  &lt;<span class="ot">/script&gt;</span>
-<span class="ot">&lt;/body</span>&gt;</code></pre>
+<span class="er">    var svg = d3.select(&quot;svg&quot;);</span>
+<span class="er">    var line = d3.svg.line();</span>
+<span class="er">    var path = line(points);</span>
+<span class="er">    svg.append(&#39;path&#39;).attr(&#39;class&#39;, &#39;line&#39;).attr(&#39;d&#39;, path);</span>
+  <span class="kw">&lt;/script&gt;</span>
+<span class="kw">&lt;/body&gt;</span></code></pre>
 </section><section id="d3-will-call-line-if-we-supply-the-data" class="slide level2">
 <h1>D3 will call <code>line</code> if we supply the data</h1>
 <pre><code>var points = [[0, 100], [25, 50], [50, 0], [75, 50], [100, 100]];
@@ -1516,7 +1510,6 @@ svg.append(&#39;path&#39;).datum(points).attr(&#39;class&#39;, &#39;line&#39;).a
     </div>
   </div>
 
-
   <script src="reveal.js/lib/js/head.min.js"></script>
   <script src="reveal.js/js/reveal.min.js"></script>
 
@@ -1541,5 +1534,5 @@ svg.append(&#39;path&#39;).datum(points).attr(&#39;class&#39;, &#39;line&#39;).a
 //          { src: 'reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
 ]});
     </script>
-    </body>
+  </body>
 </html>
